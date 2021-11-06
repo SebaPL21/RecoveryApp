@@ -2,8 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/info"
-        android:title="@string/text_label_more"
+        android:id="@+id/settings"
+        android:title="@string/text_label_settings"
         android:icon="@drawable/baseline_more_vert_black_24dp"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/about_as"
+        android:title="@string/text_label_about_as"
+        android:icon="@drawable/baseline_more_vert_black_24dp"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/help"
+        android:title="@string/text_label_help"
+        android:icon="@drawable/baseline_more_vert_black_24dp"
+        app:showAsAction="never"/>
 </menu>

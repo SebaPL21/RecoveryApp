@@ -2,11 +2,15 @@
     <string name="app_name">RecoveryApp</string>
 
     <string name="text_label_home">Home</string>
-    <string name="text_label_exercises">Exercises</string>
-    <string name="text_label_workout">Workout</string>
-    <string name="text_label_profile">Profile</string>
+    <string name="text_label_exercises">Ćwiczenia</string>
+    <string name="text_label_workout">Trening</string>
+    <string name="text_label_profile">Profil</string>
 
     <string name="text_label_more">More</string>
-    <string name="text_label_about_as">About as</string>
+    <string name="text_label_about_as">O nas</string>
     <string name="text_label_info">About as</string>
+    <string name="text_label_settings">Ustawienia</string>
+    <string name="text_label_help">Pomoc</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
