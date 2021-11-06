@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">RecoveryApp</string>
+
+    <string name="text_label_home">Home</string>
+    <string name="text_label_exercises">Exercises</string>
+    <string name="text_label_workout">Workout</string>
+    <string name="text_label_profile">Profile</string>
 </resources>
