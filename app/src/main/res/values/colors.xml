@@ -19,4 +19,6 @@
     <color name="disabled_text_color">#BDBDBD</color>
     <color name="divider_color">#BDBDBD</color>
 
+    <color name="toolbarTextColor">#ffffff</color>
+
 </resources>

@@ -5,4 +5,8 @@
     <string name="text_label_exercises">Exercises</string>
     <string name="text_label_workout">Workout</string>
     <string name="text_label_profile">Profile</string>
+
+    <string name="text_label_more">More</string>
+    <string name="text_label_about_as">About as</string>
+    <string name="text_label_info">About as</string>
 </resources>
