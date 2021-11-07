@@ -11,7 +11,7 @@ import java.util.List;
 @Entity(tableName = "workout_table")
 public class Workout {
     @PrimaryKey(autoGenerate = true)
-    private int id_workout;
+    private long workoutId;
 
     private String name;
 
@@ -21,7 +21,7 @@ public class Workout {
 
     private int difficultLevel;
 
-    private int fk_categoryId;
+    private long fk_categoryId;
 
     public Workout(String name, String description, String imagePath, int difficultLevel, int fk_categoryId) {
         this.name = name;
@@ -31,8 +31,12 @@ public class Workout {
         this.fk_categoryId = fk_categoryId;
     }
 
-    public int getId_workout() {
-        return id_workout;
+    public long getWorkoutId() {
+        return workoutId;
+    }
+
+    public void setWorkoutId(long workoutId) {
+        this.workoutId = workoutId;
     }
 
     public String getName() {
@@ -51,7 +55,7 @@ public class Workout {
         return difficultLevel;
     }
 
-    public int getFk_categoryId() {
+    public long getFk_categoryId() {
         return fk_categoryId;
     }
 }

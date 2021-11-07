@@ -8,6 +8,6 @@ import java.util.List;
 public class CategoryWithWorkout {
     @Embedded
     public Category category;
-    @Relation(parentColumn = "id_category",entityColumn = "fk_categoryId")
+    @Relation(parentColumn = "categoryId",entityColumn = "fk_categoryId")
     public List<Workout> workoutList;
 }

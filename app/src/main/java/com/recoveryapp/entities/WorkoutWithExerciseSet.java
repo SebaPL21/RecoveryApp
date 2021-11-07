@@ -9,7 +9,7 @@ public class WorkoutWithExerciseSet {
     @Embedded
     public Workout workout;
     @Relation(
-            parentColumn = "id_workout",
+            parentColumn = "workoutId",
             entity = ExerciseSet.class,entityColumn = "fk_exerciseId")
     public List<ExerciseSet> exerciseSetList;
 

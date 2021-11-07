@@ -1,10 +1,13 @@
 package com.recoveryapp;
 
 import android.content.Context;
+import android.os.AsyncTask;
 
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.recoveryapp.dao.CategoryDao;
 import com.recoveryapp.entities.Category;
@@ -23,8 +26,32 @@ public abstract class RecoveryDatabase extends RoomDatabase {
         if(instance == null){
             instance = Room.databaseBuilder(context.getApplicationContext(),RecoveryDatabase.class, "recovery_database")
                     .fallbackToDestructiveMigration()
+                    .addCallback(roomCallback)
                     .build();
         }
         return instance;
+    }
+    private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback(){
+        @Override
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+            super.onCreate(db);
+            new SeedDatabaseAsyncTask(instance).execute();
+        }
+    };
+    private static class SeedDatabaseAsyncTask extends AsyncTask<Void, Void, Void> {
+        private CategoryDao categoryDao;
+
+        public SeedDatabaseAsyncTask(RecoveryDatabase database) {
+            categoryDao = database.categoryDao();
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            categoryDao.insert(new Category("Category 1","Category Description 1"));
+            categoryDao.insert(new Category("Category 2","Category Description 2"));
+            categoryDao.insert(new Category("Category 3","Category Description 3"));
+
+            return null;
+        }
     }
 }

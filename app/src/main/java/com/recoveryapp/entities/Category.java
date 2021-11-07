@@ -6,7 +6,8 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "category_table")
 public class Category {
     @PrimaryKey(autoGenerate = true)
-    private int id_category;
+    private long categoryId;
+
     private String name;
     private String description;
 
@@ -15,8 +16,12 @@ public class Category {
         this.description = description;
     }
 
-    public int getId_category() {
-        return id_category;
+    public long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(long categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getName() {

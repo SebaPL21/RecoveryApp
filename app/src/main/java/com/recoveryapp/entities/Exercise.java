@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "exercise_table")
 public class Exercise {
     @PrimaryKey(autoGenerate = true)
-    private int id_exercise;
+    private long exerciseId;
 
     private String name;
 
@@ -26,8 +26,12 @@ public class Exercise {
         this.difficultLevel = difficultLevel;
     }
 
-    public int getId_exercise() {
-        return id_exercise;
+    public long getExerciseId() {
+        return exerciseId;
+    }
+
+    public void setExerciseId(long exerciseId) {
+        this.exerciseId = exerciseId;
     }
 
     public String getName() {

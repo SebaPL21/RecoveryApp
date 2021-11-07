@@ -6,29 +6,31 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
+import java.sql.Date;
 import java.sql.Time;
 
 @Entity(tableName = "workout_log_table")
 public class WorkoutLog {
     @PrimaryKey(autoGenerate = true)
-    private int id;
-    private Time date;
-    private int fk_workoutId;
+    private long workoutLogId;
 
-    public WorkoutLog(Time date, int fk_workoutId) {
-        this.date = date;
+    //private Date date;
+    private long fk_workoutId;
+
+    public WorkoutLog(int fk_workoutId) {
         this.fk_workoutId = fk_workoutId;
     }
 
-    public int getId() {
-        return id;
+    public long getWorkoutLogId() {
+        return workoutLogId;
     }
 
-    public Time getDate() {
-        return date;
+    public void setWorkoutLogId(long workoutLogId) {
+        this.workoutLogId = workoutLogId;
     }
 
-    public int getFk_workoutId() {
+
+    public long getFk_workoutId() {
         return fk_workoutId;
     }
 }
