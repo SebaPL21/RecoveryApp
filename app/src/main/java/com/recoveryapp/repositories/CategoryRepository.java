@@ -33,6 +33,11 @@ public class CategoryRepository {
     public LiveData<List<Category>> getAllCategories() {
         return categories;
     }
+    public Category findById(long id) {
+        return categoryDao.findById(id);
+    }
+
+
     private static class InsertCategoryAsyncTask extends AsyncTask<Category,Void, Void> {
         private CategoryDao categoryDao;
 

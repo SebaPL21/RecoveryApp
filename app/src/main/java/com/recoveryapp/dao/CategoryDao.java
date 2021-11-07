@@ -8,7 +8,6 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.recoveryapp.entities.Category;
-
 import java.util.List;
 
 @Dao
@@ -24,4 +23,7 @@ public interface CategoryDao {
 
     @Query("Select * FROM category_table")
     LiveData<List<Category>> getAllCategories();
+
+    @Query("SELECT * FROM category_table WHERE categoryId = :id")
+    Category findById(long id);
 }
