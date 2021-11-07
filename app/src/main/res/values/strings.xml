@@ -13,4 +13,17 @@
     <string name="text_label_help">Pomoc</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="planing">Planing</string>
+    <string name="history">History</string>
+    <string name="profile">Profile</string>
+    <string name="profil_u_ytkownika">Profil użytkownika</string>
+    <string name="nazwisko">nazwisko</string>
+    <string name="imie">imie</string>
+    <string name="historia_wicze">Historia ćwiczeń</string>
+    <string name="planowanie">Planowanie</string>
+    <string name="foto">foto</string>
+    <string name="statystyki">Statystyki</string>
+    <string name="user">user</string>
+    <string name="wiczenia">ćwiczenia</string>
+    <string name="Ćwiczenia">Ćwiczenia</string>
 </resources>
