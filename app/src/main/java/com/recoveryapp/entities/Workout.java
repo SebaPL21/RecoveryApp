@@ -23,7 +23,7 @@ public class Workout {
 
     private long fk_categoryId;
 
-    public Workout(String name, String description, String imagePath, int difficultLevel, int fk_categoryId) {
+    public Workout(String name, String description, String imagePath, int difficultLevel, long fk_categoryId) {
         this.name = name;
         this.description = description;
         this.imagePath = imagePath;

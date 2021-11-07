@@ -17,7 +17,7 @@ public class WorkoutLog {
     //private Date date;
     private long fk_workoutId;
 
-    public WorkoutLog(int fk_workoutId) {
+    public WorkoutLog(long fk_workoutId) {
         this.fk_workoutId = fk_workoutId;
     }
 

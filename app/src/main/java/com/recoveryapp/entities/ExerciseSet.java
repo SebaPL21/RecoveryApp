@@ -14,7 +14,7 @@ public class ExerciseSet {
     private long fk_exerciseId;
     private int set;
 
-    public ExerciseSet(int fk_exerciseId, int set) {
+    public ExerciseSet(long fk_exerciseId, int set) {
         this.fk_exerciseId = fk_exerciseId;
         this.set = set;
     }

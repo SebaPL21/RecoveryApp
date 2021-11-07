@@ -10,6 +10,10 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.recoveryapp.dao.CategoryDao;
+import com.recoveryapp.dao.ExerciseDao;
+import com.recoveryapp.dao.ExerciseSetDao;
+import com.recoveryapp.dao.WorkoutDao;
+import com.recoveryapp.dao.WorkoutLogDao;
 import com.recoveryapp.entities.Category;
 import com.recoveryapp.entities.Exercise;
 import com.recoveryapp.entities.ExerciseSet;
@@ -21,6 +25,10 @@ public abstract class RecoveryDatabase extends RoomDatabase {
     private static RecoveryDatabase instance;
 
     public abstract CategoryDao categoryDao();
+    public abstract ExerciseDao exerciseDao();
+    public abstract ExerciseSetDao exerciseSetDao();
+    public abstract WorkoutDao workoutDao();
+    public abstract WorkoutLogDao workoutLogDao();
 
     public static synchronized  RecoveryDatabase getInstance(Context context){
         if(instance == null){
