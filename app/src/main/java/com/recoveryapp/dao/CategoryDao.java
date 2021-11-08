@@ -8,6 +8,8 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.recoveryapp.entities.Category;
+import com.recoveryapp.entities.CategoryWithWorkout;
+
 import java.util.List;
 
 @Dao
@@ -26,4 +28,8 @@ public interface CategoryDao {
 
     @Query("SELECT * FROM category_table WHERE categoryId = :id")
     Category findById(long id);
+
+    @Query("Select * FROM category_table WHERE categoryId = :id")
+    CategoryWithWorkout getCategorieByIdWithWorkouts(long id);
+
 }

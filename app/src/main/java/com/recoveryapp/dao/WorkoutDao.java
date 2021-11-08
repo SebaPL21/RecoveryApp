@@ -8,6 +8,8 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.recoveryapp.entities.Workout;
+import com.recoveryapp.entities.WorkoutWithExerciseSet;
+import com.recoveryapp.entities.WorkoutWithWorkoutLog;
 
 import java.util.List;
 @Dao
@@ -26,4 +28,10 @@ public interface WorkoutDao {
 
     @Query("SELECT * FROM workout_table WHERE workoutId = :id")
     Workout findById(long id);
+
+    @Query("SELECT * FROM workout_table WHERE workoutId = :id")
+    WorkoutWithExerciseSet findByIdWithExerciseSet(long id);
+
+    @Query("SELECT * FROM workout_table WHERE workoutId = :id")
+    WorkoutWithWorkoutLog findByIdWithWorkoutLog(long id);
 }

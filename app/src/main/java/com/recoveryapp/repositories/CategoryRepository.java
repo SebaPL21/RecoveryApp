@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData;
 import com.recoveryapp.RecoveryDatabase;
 import com.recoveryapp.dao.CategoryDao;
 import com.recoveryapp.entities.Category;
+import com.recoveryapp.entities.CategoryWithWorkout;
 
 import java.util.List;
 
@@ -35,6 +36,9 @@ public class CategoryRepository {
     }
     public Category findById(long id) {
         return categoryDao.findById(id);
+    }
+    public CategoryWithWorkout findByIdWithWorkouts(long id) {
+        return categoryDao.getCategorieByIdWithWorkouts(id);
     }
 
 

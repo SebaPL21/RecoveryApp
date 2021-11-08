@@ -10,6 +10,8 @@ import com.recoveryapp.dao.CategoryDao;
 import com.recoveryapp.dao.WorkoutDao;
 import com.recoveryapp.entities.Category;
 import com.recoveryapp.entities.Workout;
+import com.recoveryapp.entities.WorkoutWithExerciseSet;
+import com.recoveryapp.entities.WorkoutWithWorkoutLog;
 
 import java.util.List;
 
@@ -38,6 +40,14 @@ public class WorkoutRepository {
     public Workout findById(long id){
         return workoutDao.findById(id);
     }
+    public WorkoutWithExerciseSet findByIdWithExerciseSet(long id){
+        return workoutDao.findByIdWithExerciseSet(id);
+    }
+    public WorkoutWithWorkoutLog findByIdWithWorkoutLog(long id){
+        return workoutDao.findByIdWithWorkoutLog(id);
+    }
+
+
     private static class InsertWorkoutAsyncTask extends AsyncTask<Workout,Void, Void> {
         private WorkoutDao workoutDao;
 
