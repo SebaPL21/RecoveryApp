@@ -70,6 +70,8 @@ public abstract class RecoveryDatabase extends RoomDatabase {
             exerciseDao.insert(new Exercise("Skip B","Opis ćwiczenia4","Kroki jak wykonać ćwiczenie4","",3));
 
             workoutDao.insert(new Workout("Zdrowy kregosłup","Opis","",1,1));
+            workoutDao.insert(new Workout("Zdrowy kregosłup szyjny","Opis","",2,1));
+            workoutDao.insert(new Workout("Zdrowy kregosłup lędzwiowy","Opis","",3,1));
 
             workoutLogDao.insert(new WorkoutLog(1));
             
