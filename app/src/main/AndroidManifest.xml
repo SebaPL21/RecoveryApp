@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RecoveryApp">
         <activity
+            android:name=".activities.ProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.WorkoutActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.ExercisesActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
