@@ -2,6 +2,10 @@ package com.recoveryapp.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,13 +14,23 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.recoveryapp.R;
+import com.recoveryapp.adapters.CategoryAdapter;
+import com.recoveryapp.adapters.ExercisesAdapter;
+import com.recoveryapp.entities.Category;
+import com.recoveryapp.entities.Exercise;
+import com.recoveryapp.viewmodel.CategoryViewModel;
+import com.recoveryapp.viewmodel.ExercisesViewModel;
+
+import java.util.List;
 
 public class ExercisesActivity extends AppCompatActivity {
+        ExercisesViewModel exercisesViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercises);
+
 
         BottomNavigationView bottomNavigation = findViewById(R.id.bottomNavigation);
         bottomNavigation.setSelectedItemId(R.id.exercises);
@@ -42,5 +56,23 @@ public class ExercisesActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        RecyclerView recyclerView = findViewById(R.id.exercises_recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
+
+        ExercisesAdapter adapter = new ExercisesAdapter();
+        recyclerView.setAdapter(adapter);
+
+        /*View model observer */
+        exercisesViewModel = new ViewModelProvider(this).get(ExercisesViewModel.class);
+
+        exercisesViewModel.getAllExercises().observe(this, new Observer<List<Exercise>>() {
+            @Override
+            public void onChanged(List<Exercise> exercises) {
+                adapter.setExercises(exercises);
+            }
+        });
+
     }
 }
