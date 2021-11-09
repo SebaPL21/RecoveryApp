@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 
 import com.recoveryapp.entities.Workout;
@@ -29,9 +30,11 @@ public interface WorkoutDao {
     @Query("SELECT * FROM workout_table WHERE workoutId = :id")
     Workout findById(long id);
 
+    @Transaction
     @Query("SELECT * FROM workout_table WHERE workoutId = :id")
     WorkoutWithExerciseSet findByIdWithExerciseSet(long id);
 
+    @Transaction
     @Query("SELECT * FROM workout_table WHERE workoutId = :id")
     WorkoutWithWorkoutLog findByIdWithWorkoutLog(long id);
 }

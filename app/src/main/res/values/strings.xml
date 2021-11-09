@@ -26,4 +26,8 @@
     <string name="user">user</string>
     <string name="wiczenia">ćwiczenia</string>
     <string name="Ćwiczenia">Ćwiczenia</string>
+
+
+    <string name="text_view_choose_workout">Wybór treningu rehabilitacyjnego:</string>
+    <string name="text_view_choose_category_of_workout">Wybór kategorii treningu:</string>
 </resources>

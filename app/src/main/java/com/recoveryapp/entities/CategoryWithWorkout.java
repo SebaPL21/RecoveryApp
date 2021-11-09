@@ -1,5 +1,6 @@
 package com.recoveryapp.entities;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Embedded;
 import androidx.room.Relation;
 

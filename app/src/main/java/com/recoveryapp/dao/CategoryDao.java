@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 
 import com.recoveryapp.entities.Category;
@@ -29,6 +30,7 @@ public interface CategoryDao {
     @Query("SELECT * FROM category_table WHERE categoryId = :id")
     Category findById(long id);
 
+    @Transaction
     @Query("Select * FROM category_table WHERE categoryId = :id")
     CategoryWithWorkout getCategorieByIdWithWorkouts(long id);
 
