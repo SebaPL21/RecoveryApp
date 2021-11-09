@@ -15,7 +15,7 @@
         <ImageView
             android:id="@+id/image_view_category"
             android:layout_width="wrap_content"
-            android:layout_height="250dp"
+            android:layout_height="180dp"
             android:scaleType="centerCrop"
 
             app:srcCompat="@drawable/sample_image" />
@@ -28,7 +28,7 @@
             android:textColor="@color/text_primary_color"
             android:layout_alignBottom="@id/image_view_category"
             android:text="Category name"
-            android:textSize="32dp" />
+            android:textSize="25dp" />
 
     </RelativeLayout>
 
