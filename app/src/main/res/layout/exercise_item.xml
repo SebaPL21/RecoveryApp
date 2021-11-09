@@ -14,17 +14,17 @@
 
 
         <TextView
-            android:id="@+id/text_view_exerciese_name"
+            android:id="@+id/text_view_exercise_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="name"
             android:textSize="19dp" />
 
         <ImageView
-            android:id="@+id/image_view_workout"
+            android:id="@+id/image_view_exercise"
             android:layout_width="wrap_content"
             android:layout_height="180dp"
-            android:layout_below="@+id/text_view_exerciese_name"
+            android:layout_below="@+id/text_view_exercise_name"
             android:scaleType="centerCrop"
             android:layout_marginTop="4dp"
 

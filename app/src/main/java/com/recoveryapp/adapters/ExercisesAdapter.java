@@ -20,7 +20,7 @@ public class ExercisesAdapter extends RecyclerView.Adapter <ExercisesAdapter.Exe
     @Override
     public ExerciseHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View exerItemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.activity_exercises,parent, false);
+                .inflate(R.layout.exercise_item,parent, false);
         return new ExerciseHolder(exerItemView);
     }
 
@@ -46,7 +46,7 @@ public class ExercisesAdapter extends RecyclerView.Adapter <ExercisesAdapter.Exe
 
         public ExerciseHolder(@NonNull View itemView) {
             super(itemView);
-            tViewTitle = itemView.findViewById(R.id.text_view_exerciese_name);
+            tViewTitle = itemView.findViewById(R.id.text_view_exercise_name);
         }
     }
 }
