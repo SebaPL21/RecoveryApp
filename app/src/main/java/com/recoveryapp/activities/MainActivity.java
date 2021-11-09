@@ -3,8 +3,6 @@ package com.recoveryapp.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -44,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.work:
-                        startActivity(new Intent(getApplicationContext(),WorkoutActivity.class));
+                        startActivity(new Intent(getApplicationContext(), CategoryActivity.class));
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.profile:

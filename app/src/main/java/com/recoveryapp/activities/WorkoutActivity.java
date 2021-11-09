@@ -30,31 +30,7 @@ public class WorkoutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout);
-        /*Bottom menu on item selected*/
-        BottomNavigationView bottomNavigation = findViewById(R.id.bottomNavigation);
-        bottomNavigation.setSelectedItemId(R.id.work);
-        bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.home:
-                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.exercises:
-                        startActivity(new Intent(getApplicationContext(),ExercisesActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                    case R.id.work:
-                        return true;
-                    case R.id.profile:
-                        startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
-                        overridePendingTransition(0,0);
-                        return true;
-                }
-                return false;
-            }
-        });
+
         /*RecyclerView implementation*/
         RecyclerView recyclerView = findViewById(R.id.workout_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
