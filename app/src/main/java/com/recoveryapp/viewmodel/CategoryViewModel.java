@@ -7,6 +7,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.recoveryapp.entities.Category;
+import com.recoveryapp.entities.CategoryWithWorkout;
+import com.recoveryapp.entities.Workout;
 import com.recoveryapp.repositories.CategoryRepository;
 
 import java.util.List;
@@ -21,5 +23,9 @@ public class CategoryViewModel extends AndroidViewModel {
     }
     public LiveData<List<Category>> getAllCategories(){
         return categories;
+    }
+
+    public List<Workout> getWorkoutsByCategoryId(long id){
+        return categoryRepository.findByIdWithWorkouts(id).workoutList;
     }
 }

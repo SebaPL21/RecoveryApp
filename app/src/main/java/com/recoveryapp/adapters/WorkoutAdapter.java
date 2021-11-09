@@ -1,4 +1,4 @@
-package com.recoveryapp;
+package com.recoveryapp.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.recoveryapp.R;
 import com.recoveryapp.entities.Workout;
 
 import java.util.ArrayList;

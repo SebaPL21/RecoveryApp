@@ -13,9 +13,10 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-import com.recoveryapp.CategoryAdapter;
+import com.recoveryapp.adapters.CategoryAdapter;
 import com.recoveryapp.R;
 import com.recoveryapp.entities.Category;
+import com.recoveryapp.entities.Workout;
 import com.recoveryapp.viewmodel.CategoryViewModel;
 
 import java.util.List;
@@ -68,6 +69,16 @@ public class CategoryActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Category> categories) {
                 adapter.setCategoryList(categories);
+            }
+        });
+        /*On click listener*/
+        adapter.setOnClickListener(new CategoryAdapter.OnClickListener() {
+            @Override
+            public void onItemClick(Category category) {
+                Intent intent = new Intent(getApplicationContext(), WorkoutActivity.class);
+                intent.putExtra(WorkoutActivity.EXTRA_CATEGORY_ID,String.valueOf(category.getCategoryId()));
+                startActivity(intent);
+                overridePendingTransition(0,0);
             }
         });
     }
