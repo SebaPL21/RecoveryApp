@@ -21,6 +21,7 @@ import com.recoveryapp.viewmodel.WorkoutViewModel;
 import com.recoveryapp.adapters.WorkoutAdapter;
 import com.recoveryapp.entities.Workout;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -81,7 +82,13 @@ public class WorkoutActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Workout> workouts) {
                 long categoryId = Long.valueOf(category_id).longValue();
-                adapter.setWorkoutList(workouts.stream().filter((x) -> x.getFk_categoryId() == categoryId).collect(Collectors.toList()));
+                List<Workout> list = new ArrayList<>();
+                for (Workout x : workouts) {
+                    if (x.getFk_categoryId() == categoryId) {
+                        list.add(x);
+                    }
+                }
+                adapter.setWorkoutList(list);
             }
         });
 
