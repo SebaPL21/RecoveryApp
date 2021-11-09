@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.recoveryapp.R;
+import com.recoveryapp.entities.Category;
 import com.recoveryapp.entities.Workout;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.List;
 
 public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.WorkoutHolder> {
     private List<Workout> workoutList = new ArrayList<>();
+    private OnClickListener onClickListener;
 
     @NonNull
     @Override
@@ -51,6 +53,24 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.WorkoutH
             super(itemView);
             textViewName = itemView.findViewById(R.id.text_view_name);
             textViewDifficultLevel = itemView.findViewById(R.id.text_view_difficult_level);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if(onClickListener != null && position != RecyclerView.NO_POSITION){
+                        onClickListener.onItemClick(workoutList.get(position));
+                        System.out.println(workoutList.get(position).getWorkoutId());
+                    }
+                }
+            });
         }
+    }
+    /*On click listener*/
+    public interface OnClickListener{
+        void onItemClick(Workout workout);
+    }
+    public void setOnClickListener(OnClickListener listener){
+        this.onClickListener = listener;
     }
 }

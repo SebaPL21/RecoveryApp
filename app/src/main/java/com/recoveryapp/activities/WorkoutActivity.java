@@ -16,7 +16,9 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.recoveryapp.R;
+import com.recoveryapp.adapters.CategoryAdapter;
 import com.recoveryapp.adapters.WorkoutAdapter;
+import com.recoveryapp.entities.Category;
 import com.recoveryapp.entities.Workout;
 import com.recoveryapp.viewmodel.CategoryViewModel;
 import com.recoveryapp.viewmodel.WorkoutViewModel;
@@ -34,6 +36,7 @@ public class WorkoutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout);
+        /*Initialize data from intent*/
         Intent data = getIntent();
         category_id = data.getStringExtra(WorkoutActivity.EXTRA_CATEGORY_ID);
         /*Bottom menu on item selected*/
@@ -81,6 +84,18 @@ public class WorkoutActivity extends AppCompatActivity {
             public void onChanged(List<Workout> workouts) {
                 long categoryId = Long.valueOf(category_id).longValue();
                 adapter.setWorkoutList(workouts.stream().filter((x) -> x.getFk_categoryId() == categoryId).collect(Collectors.toList()));
+            }
+        });
+
+        /*On click listener*/
+        adapter.setOnClickListener(new WorkoutAdapter.OnClickListener() {
+            @Override
+            public void onItemClick(Workout workout) {
+                /*
+                Intent intent = new Intent(getApplicationContext(), WorkoutActivity.class);
+                intent.putExtra(WorkoutActivity.EXTRA_CATEGORY_ID,String.valueOf(workout.getCategoryId()));
+                startActivity(intent);
+                overridePendingTransition(0,0);*/
             }
         });
     }
