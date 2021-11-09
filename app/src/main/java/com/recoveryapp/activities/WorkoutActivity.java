@@ -3,6 +3,10 @@ package com.recoveryapp.activities;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Build;
@@ -12,14 +16,10 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.recoveryapp.R;
-
-public class WorkoutActivity extends AppCompatActivity {
-import com.recoveryapp.adapters.CategoryAdapter;
-import com.recoveryapp.adapters.WorkoutAdapter;
-import com.recoveryapp.entities.Category;
-import com.recoveryapp.entities.Workout;
 import com.recoveryapp.viewmodel.CategoryViewModel;
 import com.recoveryapp.viewmodel.WorkoutViewModel;
+import com.recoveryapp.adapters.WorkoutAdapter;
+import com.recoveryapp.entities.Workout;
 
 import java.util.List;
 import java.util.stream.Collectors;
