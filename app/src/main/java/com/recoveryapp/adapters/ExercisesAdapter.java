@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExercisesAdapter extends RecyclerView.Adapter <ExercisesAdapter.ExerciseHolder>{
+    public OnClickListener onclickListener;
     private List<Exercise> exercises = new ArrayList<>();
     @NonNull
     @Override
@@ -43,10 +44,26 @@ public class ExercisesAdapter extends RecyclerView.Adapter <ExercisesAdapter.Exe
     class ExerciseHolder extends RecyclerView.ViewHolder{
         private TextView tViewTitle;
 
-
         public ExerciseHolder(@NonNull View itemView) {
             super(itemView);
             tViewTitle = itemView.findViewById(R.id.text_view_exercise_name);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if(onclickListener != null && position != RecyclerView.NO_POSITION){
+                        onclickListener.onItemClick(exercises.get(position));
+                        System.out.println(exercises.get(position).getExerciseId());
+                    }
+                }
+            });
         }
+    }
+    public interface OnClickListener{
+        void onItemClick(Exercise exercise);
+    }
+    public void setOnClickListener(OnClickListener listener){
+        this.onclickListener = listener;
     }
 }

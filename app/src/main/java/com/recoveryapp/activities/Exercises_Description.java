@@ -1,6 +1,7 @@
 package com.recoveryapp.activities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -8,30 +9,36 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.recoveryapp.R;
-import com.recoveryapp.adapters.CategoryAdapter;
-import com.recoveryapp.adapters.ExercisesAdapter;
-import com.recoveryapp.entities.Category;
+import com.recoveryapp.adapters.ExerciseDescriptionAdapter;
 import com.recoveryapp.entities.Exercise;
-import com.recoveryapp.viewmodel.CategoryViewModel;
+import com.recoveryapp.viewmodel.ExerciseDescriptionViewModel;
 import com.recoveryapp.viewmodel.ExercisesViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExercisesActivity extends AppCompatActivity {
-    private ExercisesViewModel exercisesViewModel;
+public class Exercises_Description extends AppCompatActivity {
+    private ExerciseDescriptionViewModel exercisesViewModel;
+    public static final String Extra_Exercise_ID = "com.recoveryapp.activities.Extra_Exercise_ID";
+    private String exercise_id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_exercises);
+        setContentView(R.layout.activity_exercises_description);
+
+        Intent data = getIntent();
+        exercise_id = data.getStringExtra(Exercises_Description.Extra_Exercise_ID);
+
         BottomNavigationView bottomNavigation = findViewById(R.id.bottomNavigation);
-        bottomNavigation.setSelectedItemId(R.id.exercises);
+        bottomNavigation.setSelectedItemId(R.id.work);
         bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -41,6 +48,8 @@ public class ExercisesActivity extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         return true;
                     case R.id.exercises:
+                        startActivity(new Intent(getApplicationContext(),ExercisesActivity.class));
+                        overridePendingTransition(0,0);
                         return true;
                     case R.id.work:
                         startActivity(new Intent(getApplicationContext(),CategoryActivity.class));
@@ -55,31 +64,39 @@ public class ExercisesActivity extends AppCompatActivity {
             }
         });
 
-        RecyclerView recyclerView = findViewById(R.id.exercises_recycler_view);
+        RecyclerView recyclerView = findViewById(R.id.exercise_description);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        ExercisesAdapter adapter = new ExercisesAdapter();
+        ExerciseDescriptionAdapter adapter = new ExerciseDescriptionAdapter();
         recyclerView.setAdapter(adapter);
 
-        /*View model observer */
-        exercisesViewModel = new ViewModelProvider(this).get(ExercisesViewModel.class);
+        exercisesViewModel = new ViewModelProvider(this).get(ExerciseDescriptionViewModel.class);
 
-        exercisesViewModel.getAllExercises().observe(this, new Observer<List<Exercise>>() {
+        exercisesViewModel.getExerciseList().observe(this, new Observer<List<Exercise>>() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onChanged(List<Exercise> exercises) {
-                adapter.setExercises(exercises);
+                long exerciseid = Long.valueOf(exercise_id).longValue();
+                List<Exercise> list = new ArrayList<>();
+                for(Exercise x: exercises){
+                    if(x.getExerciseId()==exerciseid){
+                        list.add(x);
+                    }
+                }
+                adapter.setExercisesDesriptionList(list);
             }
         });
-        adapter.setOnClickListener(new ExercisesAdapter.OnClickListener() {
+        adapter.setOnClickListener(new ExerciseDescriptionAdapter.OnClickListener(){
+
             @Override
             public void onItemClick(Exercise exercise) {
-                Intent intent = new Intent(getApplicationContext(), Exercises_Description.class);
-                intent.putExtra(Exercises_Description.Extra_Exercise_ID,String.valueOf(exercise.getExerciseId()));
+               /*
+                Intent intent = new Intent(getApplicationContext(), WorkoutActivity.class);
+                intent.putExtra(WorkoutActivity.EXTRA_CATEGORY_ID,String.valueOf(workout.getCategoryId()));
                 startActivity(intent);
-                overridePendingTransition(0,0);
+                overridePendingTransition(0,0);*/
             }
         });
-
     }
 }
