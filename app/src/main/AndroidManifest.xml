@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RecoveryApp">
         <activity
+            android:name=".activities.WorkoutSettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
@@ -32,8 +35,7 @@
             android:exported="true" />
         <activity
             android:name=".activities.MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>
