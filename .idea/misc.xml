@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
         <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/layout/activity_main.xml" value="0.20555555555555555" />
         <entry key="..\:/Users/sebas/OneDrive/Pulpit/AppCore/RecoveryApp/app/src/main/res/layout/activity_category.xml" value="1.0" />
         <entry key="..\:/Users/sebas/OneDrive/Pulpit/AppCore/RecoveryApp/app/src/main/res/layout/activity_execise_description.xml" value="0.25" />

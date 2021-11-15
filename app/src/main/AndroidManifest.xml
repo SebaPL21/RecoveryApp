@@ -35,7 +35,11 @@
             android:exported="true" />
         <activity
             android:name=".activities.MainActivity"
+<<<<<<< HEAD
             android:exported="true" />
+=======
+            android:exported="true"></activity>
+>>>>>>> 4f05f04f210eef56970cd547935f4994c1da351d
     </application>
 
 </manifest>

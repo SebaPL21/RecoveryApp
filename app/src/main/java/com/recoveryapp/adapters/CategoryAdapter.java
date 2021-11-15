@@ -28,8 +28,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     @Override
     public void onBindViewHolder(@NonNull CategoryHolder holder, int position) {
-        Category currentWorkout = categoryList.get(position);
-        holder.textViewName.setText(currentWorkout.getName());
+        Category currentCategory= categoryList.get(position);
+        holder.textViewName.setText(currentCategory.getName());
+        holder.textViewDescription.setText(currentCategory.getDescription());
     }
 
     @Override
@@ -43,10 +44,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     }
     class CategoryHolder extends  RecyclerView.ViewHolder{
         private TextView textViewName;
+        private TextView textViewDescription;
 
         public CategoryHolder(@NonNull View itemView) {
             super(itemView);
             textViewName = itemView.findViewById(R.id.text_view_category_name);
+            textViewDescription = itemView.findViewById(R.id.text_view_category_description);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -54,7 +57,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
                     int position = getAdapterPosition();
                     if(onClickListener != null && position != RecyclerView.NO_POSITION){
                         onClickListener.onItemClick(categoryList.get(position));
-                        System.out.println(categoryList.get(position).getCategoryId());
                     }
                 }
             });
