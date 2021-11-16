@@ -6,11 +6,10 @@ import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
 
 import com.recoveryapp.RecoveryDatabase;
-import com.recoveryapp.dao.CategoryDao;
 import com.recoveryapp.dao.WorkoutDao;
-import com.recoveryapp.entities.Category;
 import com.recoveryapp.entities.Workout;
-import com.recoveryapp.entities.WorkoutWithExerciseSet;
+import com.recoveryapp.entities.WorkoutExerciseSetCrossRef;
+import com.recoveryapp.entities.WorkoutWithExerciseSets;
 import com.recoveryapp.entities.WorkoutWithWorkoutLog;
 
 import java.util.List;
@@ -40,11 +39,14 @@ public class WorkoutRepository {
     public Workout findById(long id){
         return workoutDao.findById(id);
     }
-    public WorkoutWithExerciseSet findByIdWithExerciseSet(long id){
+    public WorkoutWithExerciseSets findByIdWithExerciseSet(long id){
         return workoutDao.findByIdWithExerciseSet(id);
     }
     public WorkoutWithWorkoutLog findByIdWithWorkoutLog(long id){
         return workoutDao.findByIdWithWorkoutLog(id);
+    }
+    public List<WorkoutWithExerciseSets> getAllWorkoutsWithExerciseSets(){
+        return workoutDao.getAllWorkoutsWithExerciseSets();
     }
 
 

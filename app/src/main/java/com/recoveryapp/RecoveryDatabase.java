@@ -13,14 +13,16 @@ import com.recoveryapp.dao.CategoryDao;
 import com.recoveryapp.dao.ExerciseDao;
 import com.recoveryapp.dao.ExerciseSetDao;
 import com.recoveryapp.dao.WorkoutDao;
+import com.recoveryapp.dao.WorkoutExerciseSetDao;
 import com.recoveryapp.dao.WorkoutLogDao;
 import com.recoveryapp.entities.Category;
 import com.recoveryapp.entities.Exercise;
 import com.recoveryapp.entities.ExerciseSet;
 import com.recoveryapp.entities.Workout;
+import com.recoveryapp.entities.WorkoutExerciseSetCrossRef;
 import com.recoveryapp.entities.WorkoutLog;
 
-@Database(entities = {Category.class, Exercise.class, ExerciseSet.class, Workout.class, WorkoutLog.class}, version = 1)
+@Database(entities = {Category.class, Exercise.class, ExerciseSet.class, Workout.class, WorkoutLog.class,WorkoutExerciseSetCrossRef.class}, version = 1)
 public abstract class RecoveryDatabase extends RoomDatabase {
     private static RecoveryDatabase instance;
 
@@ -29,12 +31,14 @@ public abstract class RecoveryDatabase extends RoomDatabase {
     public abstract ExerciseSetDao exerciseSetDao();
     public abstract WorkoutDao workoutDao();
     public abstract WorkoutLogDao workoutLogDao();
+    public abstract WorkoutExerciseSetDao workoutExerciseSetDao();
 
     public static synchronized  RecoveryDatabase getInstance(Context context){
         if(instance == null){
             instance = Room.databaseBuilder(context.getApplicationContext(),RecoveryDatabase.class, "recovery_database")
                     .fallbackToDestructiveMigration()
                     .addCallback(roomCallback)
+                    .allowMainThreadQueries()
                     .build();
         }
         return instance;
@@ -51,12 +55,16 @@ public abstract class RecoveryDatabase extends RoomDatabase {
         private ExerciseDao exerciseDao;
         private WorkoutDao workoutDao;
         private WorkoutLogDao workoutLogDao;
+        private ExerciseSetDao exerciseSetDao;
+        private WorkoutExerciseSetDao workoutExerciseSetDao;
 
         public SeedDatabaseAsyncTask(RecoveryDatabase database) {
             categoryDao = database.categoryDao();
             exerciseDao = database.exerciseDao();
             workoutDao = database.workoutDao();
             workoutLogDao = database.workoutLogDao();
+            exerciseSetDao = database.exerciseSetDao();
+            workoutExerciseSetDao = database.workoutExerciseSetDao();
         }
 
         @Override
@@ -71,8 +79,15 @@ public abstract class RecoveryDatabase extends RoomDatabase {
 
             workoutDao.insert(new Workout("Zdrowy kregosłup","Opis","",1,1));
 
-            workoutLogDao.insert(new WorkoutLog(1));
-            
+            exerciseSetDao.insert(new ExerciseSet(1,2));
+            exerciseSetDao.insert(new ExerciseSet(2,2));
+            exerciseSetDao.insert(new ExerciseSet(3,2));
+            exerciseSetDao.insert(new ExerciseSet(4,2));
+
+            workoutExerciseSetDao.insert(new WorkoutExerciseSetCrossRef(1,1));
+            workoutExerciseSetDao.insert(new WorkoutExerciseSetCrossRef(1,2));
+            workoutExerciseSetDao.insert(new WorkoutExerciseSetCrossRef(1,3));
+            workoutExerciseSetDao.insert(new WorkoutExerciseSetCrossRef(1,4));
             return null;
         }
     }
