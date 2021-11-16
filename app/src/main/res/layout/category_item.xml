@@ -1,35 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<com.google.android.material.card.MaterialCardView android:id="@+id/card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginEnd="8dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="8dp">
+    android:layout_margin="8dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Media -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="194dp"
+        app:srcCompat="@drawable/sample_image"
+        android:scaleType="centerCrop"
+        android:contentDescription="Description"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <ImageView
-            android:id="@+id/image_view_category"
-            android:layout_width="wrap_content"
-            android:layout_height="180dp"
-            android:scaleType="centerCrop"
-
-            app:srcCompat="@drawable/sample_image" />
-
+        <!-- Title, secondary and supporting text -->
         <TextView
             android:id="@+id/text_view_category_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/accent_color"
-            android:textColor="@color/text_primary_color"
-            android:layout_alignBottom="@id/image_view_category"
-            android:text="Category name"
-            android:textSize="25dp" />
+            android:text="Tittle"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            />
+        <TextView
+            android:id="@+id/text_view_category_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="secondary text"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="?android:attr/textColorSecondary"
+            />
 
-    </RelativeLayout>
+    </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+</LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
