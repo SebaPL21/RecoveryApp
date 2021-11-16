@@ -64,7 +64,7 @@ public abstract class RecoveryDatabase extends RoomDatabase {
             categoryDao.insert(new Category("Kregosłup","Kregosłup to jedna z najważniejszych części ciała"));
             categoryDao.insert(new Category("Dłonie","Okolica ciała obejmująca powierzchnię przednią ręki"));
 
-            exerciseDao.insert(new Exercise("Skłony ciała","Opis ćwiczenia","Kroki jak wykonać ćwiczenie","",1));
+            exerciseDao.insert(new Exercise("Skłony ciała","Powolne zginanie ciała w pasie.","Kroki jak wykonać ćwiczenie","",1));
             exerciseDao.insert(new Exercise("Martwe ciagi","Opis ćwiczenia2","Kroki jak wykonać ćwiczenie2","",2));
             exerciseDao.insert(new Exercise("Wymachy nogami","Opis ćwiczenia3","Kroki jak wykonać ćwiczenie3","",3));
             exerciseDao.insert(new Exercise("Skip B","Opis ćwiczenia4","Kroki jak wykonać ćwiczenie4","",3));

@@ -19,12 +19,11 @@ import com.recoveryapp.R;
 import com.recoveryapp.adapters.ExerciseDescriptionAdapter;
 import com.recoveryapp.entities.Exercise;
 import com.recoveryapp.viewmodel.ExerciseDescriptionViewModel;
-import com.recoveryapp.viewmodel.ExercisesViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Exercises_Description extends AppCompatActivity {
+public class ExercisesDescriptionActivity extends AppCompatActivity {
     private ExerciseDescriptionViewModel exercisesViewModel;
     public static final String Extra_Exercise_ID = "com.recoveryapp.activities.Extra_Exercise_ID";
     private String exercise_id;
@@ -35,10 +34,10 @@ public class Exercises_Description extends AppCompatActivity {
         setContentView(R.layout.activity_exercises_description);
 
         Intent data = getIntent();
-        exercise_id = data.getStringExtra(Exercises_Description.Extra_Exercise_ID);
+        exercise_id = data.getStringExtra(ExercisesDescriptionActivity.Extra_Exercise_ID);
 
         BottomNavigationView bottomNavigation = findViewById(R.id.bottomNavigation);
-        bottomNavigation.setSelectedItemId(R.id.work);
+        bottomNavigation.setSelectedItemId(R.id.exercises);
         bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

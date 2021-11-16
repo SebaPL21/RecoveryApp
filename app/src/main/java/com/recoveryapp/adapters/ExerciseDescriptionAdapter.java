@@ -9,9 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.recoveryapp.R;
-import com.recoveryapp.activities.Exercises_Description;
 import com.recoveryapp.entities.Exercise;
-import com.recoveryapp.entities.Workout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +30,7 @@ public class ExerciseDescriptionAdapter extends RecyclerView.Adapter<ExerciseDes
     Exercise currentExercise= exercises.get(position);
     holder.name.setText(currentExercise.getName());
     holder.description.setText(currentExercise.getDescription());
+    holder.level.setText("Poziom trudności: " + String.valueOf(currentExercise.getDifficultLevel()));
     }
 
     @Override
@@ -47,11 +46,13 @@ public class ExerciseDescriptionAdapter extends RecyclerView.Adapter<ExerciseDes
     class ExerciseDescriptionHolder extends  RecyclerView.ViewHolder{
         private TextView name;
         private TextView description;
+        private TextView level;
 
         public ExerciseDescriptionHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.text_view_name);
             description = itemView.findViewById(R.id.exercise_description);
+            level = itemView.findViewById(R.id.text_view_difficult_level);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

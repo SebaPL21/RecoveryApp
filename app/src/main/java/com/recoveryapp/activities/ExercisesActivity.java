@@ -14,14 +14,10 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.recoveryapp.R;
-import com.recoveryapp.adapters.CategoryAdapter;
 import com.recoveryapp.adapters.ExercisesAdapter;
-import com.recoveryapp.entities.Category;
 import com.recoveryapp.entities.Exercise;
-import com.recoveryapp.viewmodel.CategoryViewModel;
 import com.recoveryapp.viewmodel.ExercisesViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ExercisesActivity extends AppCompatActivity {
@@ -74,8 +70,8 @@ public class ExercisesActivity extends AppCompatActivity {
         adapter.setOnClickListener(new ExercisesAdapter.OnClickListener() {
             @Override
             public void onItemClick(Exercise exercise) {
-                Intent intent = new Intent(getApplicationContext(), Exercises_Description.class);
-                intent.putExtra(Exercises_Description.Extra_Exercise_ID,String.valueOf(exercise.getExerciseId()));
+                Intent intent = new Intent(getApplicationContext(), ExercisesDescriptionActivity.class);
+                intent.putExtra(ExercisesDescriptionActivity.Extra_Exercise_ID,String.valueOf(exercise.getExerciseId()));
                 startActivity(intent);
                 overridePendingTransition(0,0);
             }

@@ -13,7 +13,7 @@
             android:name=".activities.WorkoutSettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.Exercises_Description"
+            android:name=".activities.ExercisesDescriptionActivity"
             android:exported="false" />
         <activity
             android:name=".activities.SplashScreenActivity"

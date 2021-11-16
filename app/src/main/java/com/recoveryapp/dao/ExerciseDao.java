@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 
 import com.recoveryapp.entities.Exercise;
@@ -27,4 +28,6 @@ public interface ExerciseDao {
 
     @Query("SELECT * FROM exercise_table WHERE exerciseId = :id")
     Exercise findById(long id);
+
+
 }
