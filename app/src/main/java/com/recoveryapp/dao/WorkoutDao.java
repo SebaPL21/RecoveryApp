@@ -9,7 +9,8 @@ import androidx.room.Transaction;
 import androidx.room.Update;
 
 import com.recoveryapp.entities.Workout;
-import com.recoveryapp.entities.WorkoutWithExerciseSet;
+import com.recoveryapp.entities.WorkoutExerciseSetCrossRef;
+import com.recoveryapp.entities.WorkoutWithExerciseSets;
 import com.recoveryapp.entities.WorkoutWithWorkoutLog;
 
 import java.util.List;
@@ -31,8 +32,11 @@ public interface WorkoutDao {
     Workout findById(long id);
 
     @Transaction
+    @Query("SELECT * FROM workout_table")
+    List<WorkoutWithExerciseSets> getAllWorkoutsWithExerciseSets();
+    @Transaction
     @Query("SELECT * FROM workout_table WHERE workoutId = :id")
-    WorkoutWithExerciseSet findByIdWithExerciseSet(long id);
+    WorkoutWithExerciseSets findByIdWithExerciseSet(long id);
 
     @Transaction
     @Query("SELECT * FROM workout_table WHERE workoutId = :id")

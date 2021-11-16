@@ -1,9 +1,9 @@
 package com.recoveryapp.activities;
 
-import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -17,6 +17,11 @@ import android.widget.ViewFlipper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.recoveryapp.R;
+import com.recoveryapp.entities.WorkoutExerciseSetCrossRef;
+import com.recoveryapp.entities.WorkoutWithExerciseSets;
+import com.recoveryapp.viewmodel.WorkoutSettingsViewModel;
+
+import java.util.List;
 
 public class WorkoutSettingsActivity extends AppCompatActivity {
     public static final String EXTRA_WORKOUT_ID = "com.recoveryapp.activities.EXTRA_WORKOUT_ID";
@@ -26,11 +31,17 @@ public class WorkoutSettingsActivity extends AppCompatActivity {
     private Button nextButton;
     private int pageIndex;
 
+    private WorkoutSettingsViewModel workoutSettingsViewModel;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_settings);
 
+        workoutSettingsViewModel = new ViewModelProvider(this).get(WorkoutSettingsViewModel.class);
+
+        /*Bottom Nav*/
         BottomNavigationView bottomNavigation = findViewById(R.id.bottomNavigation);
         bottomNavigation.setSelectedItemId(R.id.work);
         bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -57,6 +68,7 @@ public class WorkoutSettingsActivity extends AppCompatActivity {
                 return false;
             }
         });
+        /*View flipper*/
 
         viewFlipper = findViewById(R.id.view_flipper_workout_settings);
         prevButton = findViewById(R.id.workout_settings_prev_button);
@@ -67,6 +79,9 @@ public class WorkoutSettingsActivity extends AppCompatActivity {
         Intent data = getIntent();
         workout_id = data.getStringExtra(WorkoutSettingsActivity.EXTRA_WORKOUT_ID);
         System.out.println("WorkoutId passed from intent:"+workout_id);
+        //WorkoutWithExerciseSets test  = workoutSettingsViewModel.getWorkoutWithExercise(Long.valueOf(workout_id).longValue());
+        List<WorkoutWithExerciseSets> test = workoutSettingsViewModel.getAllWorkoutsWithExerciseSets();
+        System.out.println("");
     }
 
     public void nextView(View view) {
