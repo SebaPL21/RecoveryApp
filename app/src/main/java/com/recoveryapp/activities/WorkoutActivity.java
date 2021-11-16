@@ -96,11 +96,10 @@ public class WorkoutActivity extends AppCompatActivity {
         adapter.setOnClickListener(new WorkoutAdapter.OnClickListener() {
             @Override
             public void onItemClick(Workout workout) {
-                /*
-                Intent intent = new Intent(getApplicationContext(), WorkoutActivity.class);
-                intent.putExtra(WorkoutActivity.EXTRA_CATEGORY_ID,String.valueOf(workout.getCategoryId()));
+                Intent intent = new Intent(getApplicationContext(), WorkoutSettingsActivity.class);
+                intent.putExtra(WorkoutSettingsActivity.EXTRA_WORKOUT_ID,String.valueOf(workout.getWorkoutId()));
                 startActivity(intent);
-                overridePendingTransition(0,0);*/
+                overridePendingTransition(0,0);
             }
         });
     }

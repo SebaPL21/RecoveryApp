@@ -31,7 +31,8 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.WorkoutH
     public void onBindViewHolder(@NonNull WorkoutHolder holder, int position) {
         Workout currentWorkout = workoutList.get(position);
         holder.textViewName.setText(currentWorkout.getName());
-        holder.textViewDifficultLevel.setText(String.valueOf(currentWorkout.getDifficultLevel()));
+        holder.textViewDifficultLevel.setText("Poziom trudności: "+String.valueOf(currentWorkout.getDifficultLevel()));
+        holder.textViewDescription.setText(currentWorkout.getDescription());
     }
 
     @Override
@@ -48,11 +49,13 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.WorkoutH
     class WorkoutHolder extends  RecyclerView.ViewHolder{
         private TextView textViewName;
         private TextView textViewDifficultLevel;
+        private TextView textViewDescription;
 
         public WorkoutHolder(@NonNull View itemView) {
             super(itemView);
             textViewName = itemView.findViewById(R.id.text_view_name);
             textViewDifficultLevel = itemView.findViewById(R.id.text_view_difficult_level);
+            textViewDescription = itemView.findViewById(R.id.text_view_workout_description);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -60,7 +63,6 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.WorkoutH
                     int position = getAdapterPosition();
                     if(onClickListener != null && position != RecyclerView.NO_POSITION){
                         onClickListener.onItemClick(workoutList.get(position));
-                        System.out.println(workoutList.get(position).getWorkoutId());
                     }
                 }
             });

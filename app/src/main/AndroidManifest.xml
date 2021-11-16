@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RecoveryApp">
         <activity
+            android:name=".activities.WorkoutSettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.Exercises_Description"
             android:exported="false" />
         <activity
