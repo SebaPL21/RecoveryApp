@@ -22,23 +22,34 @@ public class ExerciseSetRepository {
         exerciseSetDao = database.exerciseSetDao();
         exerciseSets = exerciseSetDao.getAllExerciseSets();
     }
-    public void insert(ExerciseSet exerciseSet){
+
+    public void insert(ExerciseSet exerciseSet) {
         new InsertExerciseSetAsyncTask(exerciseSetDao).execute(exerciseSet);
     }
-    public void update(ExerciseSet exerciseSet){
+
+    public void update(ExerciseSet exerciseSet) {
         new UpdateExerciseSetAsyncTask(exerciseSetDao).execute(exerciseSet);
     }
-    public void delete(ExerciseSet exerciseSet){
+
+    public void delete(ExerciseSet exerciseSet) {
         new DeleteExerciseSetAsyncTask(exerciseSetDao).execute(exerciseSet);
     }
 
     public LiveData<List<ExerciseSet>> getExerciseSets() {
         return exerciseSets;
     }
-    public ExerciseSet findById(long id){
+
+    public List<Long> getLastIds()
+
+    {
+        return exerciseSetDao.getLastIds();
+    }
+
+    public ExerciseSet findById(long id) {
         return exerciseSetDao.findById(id);
     }
-    private static class InsertExerciseSetAsyncTask extends AsyncTask<ExerciseSet,Void, Void> {
+
+    private static class InsertExerciseSetAsyncTask extends AsyncTask<ExerciseSet, Void, Void> {
         private ExerciseSetDao exerciseSetDao;
 
         public InsertExerciseSetAsyncTask(ExerciseSetDao exerciseSetDao) {
@@ -51,7 +62,8 @@ public class ExerciseSetRepository {
             return null;
         }
     }
-    private static class UpdateExerciseSetAsyncTask extends AsyncTask<ExerciseSet,Void, Void> {
+
+    private static class UpdateExerciseSetAsyncTask extends AsyncTask<ExerciseSet, Void, Void> {
         private ExerciseSetDao exerciseSetDao;
 
         public UpdateExerciseSetAsyncTask(ExerciseSetDao exerciseSetDao) {
@@ -64,7 +76,8 @@ public class ExerciseSetRepository {
             return null;
         }
     }
-    private static class DeleteExerciseSetAsyncTask extends AsyncTask<ExerciseSet,Void, Void> {
+
+    private static class DeleteExerciseSetAsyncTask extends AsyncTask<ExerciseSet, Void, Void> {
         private ExerciseSetDao exerciseSetDao;
 
         public DeleteExerciseSetAsyncTask(ExerciseSetDao exerciseSetDao) {

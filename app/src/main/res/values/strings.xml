@@ -30,4 +30,7 @@
 
     <string name="text_view_choose_workout">Wybór treningu rehabilitacyjnego:</string>
     <string name="text_view_choose_category_of_workout">Wybór kategorii treningu:</string>
+    <string name="title_activity_workout_start">WorkoutStartActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

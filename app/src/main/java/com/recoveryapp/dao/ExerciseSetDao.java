@@ -27,4 +27,7 @@ public interface ExerciseSetDao {
 
     @Query("SELECT * FROM exercise_set_table WHERE exerciseSetId = :id")
     ExerciseSet findById(long id);
+
+    @Query("SELECT exerciseSetId FROM exercise_set_table order by exerciseSetId DESC limit 4")
+    List<Long> getLastIds();
 }

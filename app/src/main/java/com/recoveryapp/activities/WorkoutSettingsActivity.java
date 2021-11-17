@@ -240,4 +240,20 @@ public class WorkoutSettingsActivity extends AppCompatActivity {
             seriesQuantity4.setText(String.valueOf(series4));
         }
     }
+    public void startWork(View view){
+        workoutSettingsViewModel.insert(new ExerciseSet(exerciseName1.getId(),series1));
+        workoutSettingsViewModel.insert(new ExerciseSet(exerciseName2.getId(),series2));
+        workoutSettingsViewModel.insert(new ExerciseSet(exerciseName3.getId(),series3));
+        workoutSettingsViewModel.insert(new ExerciseSet(exerciseName4.getId(),series4));
+
+        List<Long> lastInsertedIds = workoutSettingsViewModel.getLastIds();
+
+        Intent intent = new Intent(getApplicationContext(), StartWorkoutActivity.class);
+        intent.putExtra(StartWorkoutActivity.EXTRA_EXERCISE_SET1_ID,String.valueOf(lastInsertedIds.get(0)));
+        intent.putExtra(StartWorkoutActivity.EXTRA_EXERCISE_SET2_ID,String.valueOf(lastInsertedIds.get(1)));
+        intent.putExtra(StartWorkoutActivity.EXTRA_EXERCISE_SET3_ID,String.valueOf(lastInsertedIds.get(2)));
+        intent.putExtra(StartWorkoutActivity.EXTRA_EXERCISE_SET4_ID,String.valueOf(lastInsertedIds.get(3)));
+        startActivity(intent);
+        overridePendingTransition(0,0);
+    }
 }

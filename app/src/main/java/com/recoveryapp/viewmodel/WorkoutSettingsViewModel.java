@@ -31,6 +31,8 @@ public class WorkoutSettingsViewModel extends AndroidViewModel {
 
         workouts = workoutRepository.getWorkouts();
     }
+    public void insert(ExerciseSet workoutSet){
+        exerciseSetRepository.insert(workoutSet);}
 
     public LiveData<List<Workout>> getWorkouts() {
         return workouts;
@@ -47,5 +49,8 @@ public class WorkoutSettingsViewModel extends AndroidViewModel {
     }
     public ExerciseSet getExerciseSetById(long id){
         return exerciseSetRepository.findById(id);
+    }
+    public List<Long> getLastIds(){
+        return exerciseSetRepository.getLastIds();
     }
 }

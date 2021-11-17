@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/workoutSettingsLayout"
@@ -29,13 +28,13 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
+        style="@style/Widget.App.BottomNavigationView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_menu"
-        style="@style/Widget.App.BottomNavigationView">
+        app:menu="@menu/bottom_navigation_menu">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
@@ -52,7 +51,7 @@
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:layout_constraintVertical_bias="0.371" />
+        app:layout_constraintVertical_bias="0.21" />
 
     <TextView
         android:id="@+id/textView5"
@@ -65,17 +64,16 @@
         app:layout_constraintHorizontal_bias="0.267"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:layout_constraintVertical_bias="0.752" />
+        app:layout_constraintVertical_bias="0.868" />
 
     <ViewFlipper
         android:id="@+id/view_flipper_workout_settings"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:inAnimation="@android:anim/slide_in_left"
-        android:outAnimation="@android:anim/slide_out_right"
+        android:layout_marginTop="140dp"
         android:layout_marginBottom="120dp"
-        android:layout_marginTop="180dp">
-
+        android:inAnimation="@android:anim/slide_in_left"
+        android:outAnimation="@android:anim/slide_out_right">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -100,6 +98,7 @@
                     android:orientation="vertical">
 
                     <!-- Media -->
+
                     <ImageView
                         android:id="@+id/image_exercise_setting1"
                         android:layout_width="match_parent"
@@ -153,15 +152,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
-                            android:text="+1"
-                            android:onClick="increaseSeries1"/>
+                            android:onClick="increaseSeries1"
+                            android:text="+1" />
 
                         <com.google.android.material.button.MaterialButton
                             style="?attr/borderlessButtonStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="-1"
-                            android:onClick="decreaseSeries1"/>
+                            android:onClick="decreaseSeries1"
+                            android:text="-1" />
 
                         <TextView
                             android:id="@+id/text_view_series1"
@@ -169,7 +168,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="40dp"
-                            android:text="Ilość:"
+                            android:text=""
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
                     </LinearLayout>
@@ -255,15 +254,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
-                            android:text="+1"
-                            android:onClick="increaseSeries2"/>
+                            android:onClick="increaseSeries2"
+                            android:text="+1" />
 
                         <com.google.android.material.button.MaterialButton
                             style="?attr/borderlessButtonStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="-1"
-                            android:onClick="decreaseSeries2"/>
+                            android:onClick="decreaseSeries2"
+                            android:text="-1" />
 
                         <TextView
                             android:id="@+id/text_view_series2"
@@ -271,7 +270,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="40dp"
-                            android:text="Ilość:"
+                            android:text=""
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
                     </LinearLayout>
@@ -357,15 +356,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
-                            android:text="+1"
-                            android:onClick="increaseSeries3"/>
+                            android:onClick="increaseSeries3"
+                            android:text="+1" />
 
                         <com.google.android.material.button.MaterialButton
                             style="?attr/borderlessButtonStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="-1"
-                            android:onClick="decreaseSeries3"/>
+                            android:onClick="decreaseSeries3"
+                            android:text="-1" />
 
                         <TextView
                             android:id="@+id/text_view_series3"
@@ -373,7 +372,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="40dp"
-                            android:text="Ilość:"
+                            android:text=""
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
                     </LinearLayout>
@@ -459,15 +458,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
-                            android:text="+1"
-                            android:onClick="increaseSeries4"/>
+                            android:onClick="increaseSeries4"
+                            android:text="+1" />
 
                         <com.google.android.material.button.MaterialButton
                             style="?attr/borderlessButtonStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="-1"
-                            android:onClick="decreaseSeries4"/>
+                            android:onClick="decreaseSeries4"
+                            android:text="-1" />
 
                         <TextView
                             android:id="@+id/text_view_series4"
@@ -475,7 +474,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="40dp"
-                            android:text="Ilość:"
+                            android:text=""
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
                     </LinearLayout>
@@ -503,22 +502,25 @@
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.759" />
+                app:layout_constraintVertical_bias="0.759"
+                android:onClick="startWork"/>
 
             <TextView
                 android:id="@+id/textView7"
-                android:layout_width="325dp"
-                android:layout_height="118dp"
+                android:layout_width="269dp"
+                android:layout_height="212dp"
                 android:text="Wyglada na to że wszystko zostało skonfigurowane, przejdz do treningu klikajać w poniższy przycisk."
+                android:textAlignment="center"
+                android:textSize="17sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.257"
-                android:textSize="17sp"
-                android:textStyle="bold"/>
+                app:layout_constraintVertical_bias="0.305" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     </ViewFlipper>
 
