@@ -12,6 +12,7 @@ import com.recoveryapp.entities.Category;
 import com.recoveryapp.entities.ExerciseSet;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class ExerciseSetRepository {
     private ExerciseSetDao exerciseSetDao;

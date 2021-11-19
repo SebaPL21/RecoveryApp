@@ -42,29 +42,31 @@
         android:id="@+id/text_view_name_workout_settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:text="Nazwa treningu"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/view_flipper_workout_settings"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:layout_constraintVertical_bias="0.21" />
+        app:layout_constraintVertical_bias="0.385" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:text="Dostosuj trening do własnych upodobań:"
         android:textSize="17sp"
         app:layout_constraintBottom_toTopOf="@+id/view_flipper_workout_settings"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.267"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:layout_constraintVertical_bias="0.868" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <ViewFlipper
         android:id="@+id/view_flipper_workout_settings"
@@ -78,7 +80,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="411dp"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -168,7 +170,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="40dp"
-                            android:text=""
+                            android:text="2"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
                     </LinearLayout>
@@ -181,7 +183,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="411dp"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -270,7 +272,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="40dp"
-                            android:text=""
+                            android:text="2"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
                     </LinearLayout>
@@ -283,7 +285,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="411dp"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -372,7 +374,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="40dp"
-                            android:text=""
+                            android:text="2"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
                     </LinearLayout>
@@ -385,7 +387,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="411dp"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -474,7 +476,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="40dp"
-                            android:text=""
+                            android:text="2"
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
                     </LinearLayout>
