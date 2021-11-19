@@ -88,21 +88,21 @@ public class StartWorkoutActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
+                        //(new Intent(getApplicationContext(), MainActivity.class));
+                        //overridePendingTransition(0, 0);
+                        return false;
                     case R.id.exercises:
-                        startActivity(new Intent(getApplicationContext(), ExercisesActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
+                        //startActivity(new Intent(getApplicationContext(), ExercisesActivity.class));
+                        //overridePendingTransition(0, 0);
+                        return false;
                     case R.id.work:
-                        startActivity(new Intent(getApplicationContext(), CategoryActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
+                        //startActivity(new Intent(getApplicationContext(), CategoryActivity.class));
+                        //overridePendingTransition(0, 0);
+                        return false;
                     case R.id.profile:
-                        startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
+                        //startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                        //overridePendingTransition(0, 0);
+                        return false;
                 }
                 return false;
             }
@@ -205,7 +205,12 @@ public class StartWorkoutActivity extends AppCompatActivity {
             isEndedExercise = false;
             button_nextExercise.setText("Rozpocznij kolejne ćwiczenie");
             //tutaj rozpocznij kolejne cwiczenie
-            mediaPlayer_nextExercise.start();
+            if(EXERCISE_NUMBER<=3){
+                mediaPlayer_nextExercise.start();
+            }else{
+                mediaPlayer_lastExercise.start();
+            }
+
         } else {
             seriesNumber1 = exerciseSet1.getSet();
             seriesNumber2 = exerciseSet2.getSet();
@@ -214,7 +219,9 @@ public class StartWorkoutActivity extends AppCompatActivity {
 
             textView_seriesNumber.setText("Seria "+series);
             //tutaj
-            mediaPlayer_background.start();
+            if(!mediaPlayer_background.isPlaying()){
+                mediaPlayer_background.start();
+            }
 
             startExercise();
 
@@ -226,9 +233,9 @@ public class StartWorkoutActivity extends AppCompatActivity {
         button_nextExercise.setEnabled(false);
         button_nextExercise.setText("Trening");
         //tutaj rozpocznam trening
-        if(series-1 == seriesNumber1 ||series-1 == seriesNumber2 || series-1 == seriesNumber3 || series-1 == seriesNumber4){
+        if(series == seriesNumber1 || series == seriesNumber2 || series == seriesNumber3 || series == seriesNumber4){
             mediaPlayer_lastSeries.start();
-        }else{
+        }else if(series<=5){
             mediaPlayer_start.start();
         }
 
@@ -240,7 +247,7 @@ public class StartWorkoutActivity extends AppCompatActivity {
         button_nextExercise.setText("Przerwa");
         button_nextExercise.setEnabled(false);
         //tutaj przerwa
-        mediaPlayer_breakDude.start();
+        mediaPlayer_break.start();
         startBreakTimer(exerciseBreakTime);
     }
 
@@ -286,11 +293,9 @@ public class StartWorkoutActivity extends AppCompatActivity {
                     isEndedExercise = true;
                 }
                 else if(series == seriesNumber4 && EXERCISE_NUMBER == 4){
-                    button_nextExercise.setText("Następne ćwiczenie");
+                    button_nextExercise.setText("Podsumowanie treningu");
                     button_nextExercise.setEnabled(true);
                     isEndedExercise = true;
-                    //tutaj
-                    mediaPlayer_lastExercise.start();
                 }
                 else{
                 textView_countDownTimer.setText("0");
