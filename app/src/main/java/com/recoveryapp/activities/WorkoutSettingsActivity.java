@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
@@ -60,6 +62,11 @@ public class WorkoutSettingsActivity extends AppCompatActivity {
     private TextView textView_summaryItemSeriesNumber2;
     private TextView textView_summaryItemSeriesNumber3;
     private TextView textView_summaryItemSeriesNumber4;
+
+    private ImageView imageView_exercise_set_1;
+    private ImageView imageView_exercise_set_2;
+    private ImageView imageView_exercise_set_3;
+    private ImageView imageView_exercise_set_4;
 
     private int series1 = 2;
     private int series2 = 2;
@@ -175,6 +182,29 @@ public class WorkoutSettingsActivity extends AppCompatActivity {
         textView_summaryItemSeriesNumber2 = findViewById(R.id.text_view_item_summary_series2);
         textView_summaryItemSeriesNumber3 = findViewById(R.id.text_view_item_summary_series3);
         textView_summaryItemSeriesNumber4 = findViewById(R.id.text_view_item_summary_series4);
+
+        /*Image view*/
+        imageView_exercise_set_1 = findViewById(R.id.image_exercise_setting1);
+        imageView_exercise_set_2 = findViewById(R.id.image_exercise_setting2);
+        imageView_exercise_set_3 = findViewById(R.id.image_exercise_setting3);
+        imageView_exercise_set_4 = findViewById(R.id.image_exercise_setting4);
+
+        /*settig image*/
+        String iconName = exercise1.getImagePath();
+        int resID = getResources().getIdentifier(iconName, "drawable", getPackageName());
+        imageView_exercise_set_1.setImageResource(resID);
+
+        iconName = exercise2.getImagePath();
+        resID = getResources().getIdentifier(iconName, "drawable", getPackageName());
+        imageView_exercise_set_2.setImageResource(resID);
+
+        iconName = exercise3.getImagePath();
+        resID = getResources().getIdentifier(iconName, "drawable", getPackageName());
+        imageView_exercise_set_3.setImageResource(resID);
+
+        iconName = exercise4.getImagePath();
+        resID = getResources().getIdentifier(iconName, "drawable", getPackageName());
+        imageView_exercise_set_4.setImageResource(resID);
     }
 
     public void nextView(View view) {

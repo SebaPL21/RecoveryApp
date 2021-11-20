@@ -10,10 +10,12 @@ public class Category {
 
     private String name;
     private String description;
+    private String imagePath;
 
-    public Category(String name, String description) {
+    public Category(String name, String description, String imagePath) {
         this.name = name;
         this.description = description;
+        this.imagePath = imagePath;
     }
 
     public long getCategoryId() {
@@ -30,5 +32,13 @@ public class Category {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

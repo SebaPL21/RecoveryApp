@@ -69,15 +69,17 @@ public abstract class RecoveryDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            categoryDao.insert(new Category("Kregosłup","Kregosłup to jedna z najważniejszych części ciała"));
-            categoryDao.insert(new Category("Dłonie","Okolica ciała obejmująca powierzchnię przednią ręki"));
+            categoryDao.insert(new Category("Kregosłup","Kregosłup to jedna z najważniejszych części ciała","kregoslup_kategoria"));
+            categoryDao.insert(new Category("Dłonie","Okolica ciała obejmująca powierzchnię przednią ręki","nadgarstek_kategoria"));
 
-            exerciseDao.insert(new Exercise("Skłony ciała","Powolne zginanie ciała w pasie.","Kroki jak wykonać ćwiczenie","",1));
-            exerciseDao.insert(new Exercise("Martwe ciagi","Opis ćwiczenia2","Kroki jak wykonać ćwiczenie2","",2));
-            exerciseDao.insert(new Exercise("Wymachy nogami","Opis ćwiczenia3","Kroki jak wykonać ćwiczenie3","",3));
-            exerciseDao.insert(new Exercise("Skip B","Opis ćwiczenia4","Kroki jak wykonać ćwiczenie4","",3));
+            exerciseDao.insert(new Exercise("Skłony ciała","Najprostsze rozciągające ćwiczenie, polega na klasycznych skłonach tułowia w przód. ... W czasie ćwiczenia ważna jest technika oddychania. Wydech następuje podczas ruchu ramion, a przy powrocie do pozycji wyjściowej jest wdech.","1. Stań ze złączonymi nogami\n" +
+                    "2. Prowadząc dłonie blisko ciała, zejdź w dół do skłonu\n" +
+                    "3. Powoli podnoś się aż do wyprostu kręgosłupa","sklony",1));
+            exerciseDao.insert(new Exercise("Martwe ciagi","Opis ćwiczenia2","Kroki jak wykonać ćwiczenie2","martwe_ciagi",2));
+            exerciseDao.insert(new Exercise("Wymachy nogami","Opis ćwiczenia3","Kroki jak wykonać ćwiczenie3","wymachy_nogami",3));
+            exerciseDao.insert(new Exercise("Skip B","Opis ćwiczenia4","Kroki jak wykonać ćwiczenie4","skip_b",3));
 
-            workoutDao.insert(new Workout("Zdrowy kregosłup","Opis","",1,1));
+            workoutDao.insert(new Workout("Zdrowy kregosłup","Opis","zdrowy_kregoslup_trening",1,1));
 
             exerciseSetDao.insert(new ExerciseSet(1,2));
             exerciseSetDao.insert(new ExerciseSet(2,2));

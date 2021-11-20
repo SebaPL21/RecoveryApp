@@ -13,6 +13,7 @@ import android.os.CountDownTimer;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -78,6 +79,7 @@ public class StartWorkoutActivity extends AppCompatActivity {
 
     private TextView textView_seriesNumber;
 
+    private ImageView imageView_exercise;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -164,6 +166,12 @@ public class StartWorkoutActivity extends AppCompatActivity {
         textView_exerciseName.setText(exerciseName);
         textView_steps.setText(steps);
         progressBar_workout.setProgress(1);
+
+        /*Image view*/
+        imageView_exercise = findViewById(R.id.image_view_exercise_in_workout);
+        String iconName = exercise1.getImagePath();
+        int resID = getResources().getIdentifier(iconName, "drawable", getPackageName());
+        imageView_exercise.setImageResource(resID);
     }
     @Override
     public void onBackPressed() {
@@ -195,16 +203,28 @@ public class StartWorkoutActivity extends AppCompatActivity {
                     exerciseName = exercise2.getName();
                     steps = exercise2.getSteps();
                     progressBar_workout.setProgress(25);
+
+                    String iconName = exercise2.getImagePath();
+                    int resID = getResources().getIdentifier(iconName, "drawable", getPackageName());
+                    imageView_exercise.setImageResource(resID);
                     break;
                 case 3:
                     exerciseName = exercise3.getName();
                     steps = exercise3.getSteps();
                     progressBar_workout.setProgress(50);
+
+                    iconName = exercise3.getImagePath();
+                    resID = getResources().getIdentifier(iconName, "drawable", getPackageName());
+                    imageView_exercise.setImageResource(resID);
                     break;
                 case 4:
                     exerciseName = exercise4.getName();
                     steps = exercise4.getSteps();
                     progressBar_workout.setProgress(75);
+
+                    iconName = exercise4.getImagePath();
+                    resID = getResources().getIdentifier(iconName, "drawable", getPackageName());
+                    imageView_exercise.setImageResource(resID);
                     break;
                 case 5:
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);

@@ -1,8 +1,10 @@
 package com.recoveryapp.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -31,6 +33,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         Category currentCategory= categoryList.get(position);
         holder.textViewName.setText(currentCategory.getName());
         holder.textViewDescription.setText(currentCategory.getDescription());
+        /*settig image*/
+        Context context =  holder.imageViewCategory.getContext();
+        String iconName = currentCategory.getImagePath();
+        int resID = context.getResources().getIdentifier(iconName, "drawable", context.getPackageName());
+        holder.imageViewCategory.setImageResource(resID);
     }
 
     @Override
@@ -45,11 +52,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     class CategoryHolder extends  RecyclerView.ViewHolder{
         private TextView textViewName;
         private TextView textViewDescription;
+        private ImageView imageViewCategory;
 
         public CategoryHolder(@NonNull View itemView) {
             super(itemView);
             textViewName = itemView.findViewById(R.id.text_view_category_name);
             textViewDescription = itemView.findViewById(R.id.text_view_category_description);
+            imageViewCategory = itemView.findViewById(R.id.image_view_category);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

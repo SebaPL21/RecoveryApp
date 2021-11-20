@@ -13,6 +13,7 @@
 
         <!-- Media -->
         <ImageView
+            android:id="@+id/image_view_category"
             android:layout_width="match_parent"
             android:layout_height="130dp"
             app:srcCompat="@drawable/sample_image"

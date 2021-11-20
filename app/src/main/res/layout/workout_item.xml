@@ -13,6 +13,7 @@
 
         <!-- Media -->
         <ImageView
+            android:id="@+id/image_view_workout"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             app:srcCompat="@drawable/sample_image"

@@ -1,8 +1,10 @@
 package com.recoveryapp.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,6 +35,12 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.WorkoutH
         holder.textViewName.setText(currentWorkout.getName());
         holder.textViewDifficultLevel.setText("Poziom trudności: "+String.valueOf(currentWorkout.getDifficultLevel()));
         holder.textViewDescription.setText(currentWorkout.getDescription());
+
+        /*settig image*/
+        Context context =  holder.imageViewWorkout.getContext();
+        String iconName = currentWorkout.getImagePath();
+        int resID = context.getResources().getIdentifier(iconName, "drawable", context.getPackageName());
+        holder.imageViewWorkout.setImageResource(resID);
     }
 
     @Override
@@ -50,12 +58,14 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.WorkoutH
         private TextView textViewName;
         private TextView textViewDifficultLevel;
         private TextView textViewDescription;
+        private ImageView imageViewWorkout;
 
         public WorkoutHolder(@NonNull View itemView) {
             super(itemView);
             textViewName = itemView.findViewById(R.id.text_view_name);
             textViewDifficultLevel = itemView.findViewById(R.id.text_view_difficult_level);
             textViewDescription = itemView.findViewById(R.id.text_view_workout_description);
+            imageViewWorkout = itemView.findViewById(R.id.image_view_workout);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
