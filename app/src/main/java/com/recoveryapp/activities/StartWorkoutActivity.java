@@ -1,9 +1,11 @@
 package com.recoveryapp.activities;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -163,6 +165,22 @@ public class StartWorkoutActivity extends AppCompatActivity {
         textView_steps.setText(steps);
         progressBar_workout.setProgress(1);
     }
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setMessage("Jesteś pewien czy chcesz wyjść?")
+                .setCancelable(false)
+                .setPositiveButton("Tak", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        countDownTimer.cancel();
+                        mediaPlayer_background.stop();
+                        StartWorkoutActivity.super.finish();
+                    }
+                })
+                .setNegativeButton("Nie", null)
+                .show();
+    }
+
 
     public void nextExercise(View view) {
         if (isEndedExercise) {
@@ -189,25 +207,20 @@ public class StartWorkoutActivity extends AppCompatActivity {
                     progressBar_workout.setProgress(75);
                     break;
                 case 5:
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                    EXERCISE_NUMBER = 1;
                     break;
             }
             textView_exerciseName.setText(exerciseName);
             textView_steps.setText(steps);
 
-            if (EXERCISE_NUMBER == 4) {
-                button_nextExercise.setText("Zakończ trening");
-            }
-            if (EXERCISE_NUMBER == 5) {
-                EXERCISE_NUMBER = 1;
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-            }
             isEndedExercise = false;
             button_nextExercise.setText("Rozpocznij kolejne ćwiczenie");
             //tutaj rozpocznij kolejne cwiczenie
-            if(EXERCISE_NUMBER<=3){
+            if (EXERCISE_NUMBER <= 3) {
                 mediaPlayer_nextExercise.start();
-            }else{
+            } else {
                 mediaPlayer_lastExercise.start();
             }
 
@@ -217,9 +230,24 @@ public class StartWorkoutActivity extends AppCompatActivity {
             seriesNumber3 = exerciseSet3.getSet();
             seriesNumber4 = exerciseSet4.getSet();
 
-            textView_seriesNumber.setText("Seria "+series);
+            int currentSeriesNumber = 0;
+            switch (EXERCISE_NUMBER){
+                case 1:
+                    currentSeriesNumber = seriesNumber1;
+                    break;
+                case 2:
+                    currentSeriesNumber = seriesNumber2;
+                    break;
+                case 3:
+                    currentSeriesNumber = seriesNumber3;
+                    break;
+                case 4:
+                    currentSeriesNumber = seriesNumber4;
+                    break;
+            }
+            textView_seriesNumber.setText("Seria " + series+" z "+currentSeriesNumber);
             //tutaj
-            if(!mediaPlayer_background.isPlaying()){
+            if (!mediaPlayer_background.isPlaying()) {
                 mediaPlayer_background.start();
             }
 
@@ -233,9 +261,19 @@ public class StartWorkoutActivity extends AppCompatActivity {
         button_nextExercise.setEnabled(false);
         button_nextExercise.setText("Trening");
         //tutaj rozpocznam trening
-        if(series == seriesNumber1 || series == seriesNumber2 || series == seriesNumber3 || series == seriesNumber4){
-            mediaPlayer_lastSeries.start();
-        }else if(series<=5){
+        if ((series == seriesNumber1 && EXERCISE_NUMBER == 1)
+                || (series == seriesNumber2 && EXERCISE_NUMBER == 2)
+                || (series == seriesNumber3 && EXERCISE_NUMBER == 3)
+                || (series == seriesNumber4 && EXERCISE_NUMBER == 4)) {
+            if ((seriesNumber1 == 1 && EXERCISE_NUMBER == 1)
+                    || (seriesNumber2 == 1 && EXERCISE_NUMBER == 2)
+                    || (seriesNumber3 == 1 && EXERCISE_NUMBER == 3)
+                    || (seriesNumber4 == 1 && EXERCISE_NUMBER == 4)) {
+                mediaPlayer_start.start();
+            } else {
+                mediaPlayer_lastSeries.start();
+            }
+        } else {
             mediaPlayer_start.start();
         }
 
@@ -277,32 +315,28 @@ public class StartWorkoutActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                if(series == seriesNumber1 && EXERCISE_NUMBER == 1){
+                if (series == seriesNumber1 && EXERCISE_NUMBER == 1) {
                     button_nextExercise.setText("Następne ćwiczenie");
                     button_nextExercise.setEnabled(true);
                     isEndedExercise = true;
-                }
-                else if(series == seriesNumber2 && EXERCISE_NUMBER == 2){
+                } else if (series == seriesNumber2 && EXERCISE_NUMBER == 2) {
                     button_nextExercise.setText("Następne ćwiczenie");
                     button_nextExercise.setEnabled(true);
                     isEndedExercise = true;
-                }
-                else if(series == seriesNumber3 && EXERCISE_NUMBER == 3){
+                } else if (series == seriesNumber3 && EXERCISE_NUMBER == 3) {
                     button_nextExercise.setText("Następne ćwiczenie");
                     button_nextExercise.setEnabled(true);
                     isEndedExercise = true;
-                }
-                else if(series == seriesNumber4 && EXERCISE_NUMBER == 4){
+                } else if (series == seriesNumber4 && EXERCISE_NUMBER == 4) {
                     button_nextExercise.setText("Podsumowanie treningu");
                     button_nextExercise.setEnabled(true);
                     isEndedExercise = true;
-                }
-                else{
-                textView_countDownTimer.setText("0");
-                button_nextExercise.setText("Trening");
-                series++;
-                textView_seriesNumber.setText("Seria "+series);
-                startExercise();
+                } else {
+                    textView_countDownTimer.setText("0");
+                    button_nextExercise.setText("Trening");
+                    series++;
+                    textView_seriesNumber.setText("Seria " + series);
+                    startExercise();
                 }
             }
         }.start();

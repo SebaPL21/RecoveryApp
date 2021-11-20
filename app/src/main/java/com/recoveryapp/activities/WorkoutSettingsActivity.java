@@ -51,6 +51,16 @@ public class WorkoutSettingsActivity extends AppCompatActivity {
     private TextView textView_seriesQuantity3;
     private TextView textView_seriesQuantity4;
 
+    private TextView textView_summaryItemName1;
+    private TextView textView_summaryItemName2;
+    private TextView textView_summaryItemName3;
+    private TextView textView_summaryItemName4;
+
+    private TextView textView_summaryItemSeriesNumber1;
+    private TextView textView_summaryItemSeriesNumber2;
+    private TextView textView_summaryItemSeriesNumber3;
+    private TextView textView_summaryItemSeriesNumber4;
+
     private int series1 = 2;
     private int series2 = 2;
     private int series3 = 2;
@@ -154,6 +164,17 @@ public class WorkoutSettingsActivity extends AppCompatActivity {
         textView_exerciseDescription2.setText(exercise2.getDescription());
         textView_exerciseDescription3.setText(exercise3.getDescription());
         textView_exerciseDescription4.setText(exercise4.getDescription());
+
+        /*Summary initalizaction*/
+        textView_summaryItemName1 = findViewById(R.id.text_view_item_summary_name1);
+        textView_summaryItemName2 = findViewById(R.id.text_view_item_summary_name2);
+        textView_summaryItemName3 = findViewById(R.id.text_view_item_summary_name3);
+        textView_summaryItemName4 = findViewById(R.id.text_view_item_summary_name4);
+
+        textView_summaryItemSeriesNumber1 = findViewById(R.id.text_view_item_summary_series1);
+        textView_summaryItemSeriesNumber2 = findViewById(R.id.text_view_item_summary_series2);
+        textView_summaryItemSeriesNumber3 = findViewById(R.id.text_view_item_summary_series3);
+        textView_summaryItemSeriesNumber4 = findViewById(R.id.text_view_item_summary_series4);
     }
 
     public void nextView(View view) {
@@ -162,6 +183,18 @@ public class WorkoutSettingsActivity extends AppCompatActivity {
                     "Proszę kliknać rozpocznij trening", Toast.LENGTH_SHORT).show();
             nextButton.setBackgroundColor(Color.GRAY);
         } else {
+            /*Seting data to summary*/
+            textView_summaryItemName1.setText(exercise1.getName());
+            textView_summaryItemName2.setText(exercise2.getName());
+            textView_summaryItemName3.setText(exercise3.getName());
+            textView_summaryItemName4.setText(exercise4.getName());
+
+            textView_summaryItemSeriesNumber1.setText("Ilość seri "+series1);
+            textView_summaryItemSeriesNumber2.setText("Ilość seri "+series2);
+            textView_summaryItemSeriesNumber3.setText("Ilość seri "+series3);
+            textView_summaryItemSeriesNumber4.setText("Ilość seri "+series4);
+
+
             viewFlipper.setInAnimation(this, R.anim.slide_in_right);
             viewFlipper.setOutAnimation(this, R.anim.slide_out_left);
             viewFlipper.showNext();
