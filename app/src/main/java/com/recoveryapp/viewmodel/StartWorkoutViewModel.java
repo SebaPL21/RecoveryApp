@@ -31,7 +31,7 @@ public class StartWorkoutViewModel extends AndroidViewModel {
         workoutRepository = new WorkoutRepository(application);
         exerciseSetRepository = new ExerciseSetRepository(application);
         exerciseRepository = new ExerciseRepository(application);
-
+        workoutLogRepository = new WorkoutLogRepository(application);
     }
     public void insert(WorkoutLog workoutLog){
         workoutLogRepository.insert(workoutLog);}

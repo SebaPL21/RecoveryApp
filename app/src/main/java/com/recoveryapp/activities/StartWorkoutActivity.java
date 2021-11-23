@@ -22,17 +22,24 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.recoveryapp.R;
 import com.recoveryapp.entities.Exercise;
 import com.recoveryapp.entities.ExerciseSet;
+import com.recoveryapp.entities.WorkoutLog;
 import com.recoveryapp.viewmodel.StartWorkoutViewModel;
 import com.recoveryapp.viewmodel.WorkoutSettingsViewModel;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Timer;
 
 public class StartWorkoutActivity extends AppCompatActivity {
     public static final String EXTRA_WORKOUT_ID = "com.recoveryapp.activities.EXTRA_WORKOUT_ID";
     public static int EXERCISE_NUMBER = 1;
-    private long exerciseTime = 20000;
-    private long exerciseBreakTime = 10000;
+    private long exerciseTime = 4000;
+    private long exerciseBreakTime = 2000;
     private int series = 1;
+    private int currentSeriesNumber = 0;
+    private String workout_id;
+
+
     private CountDownTimer countDownTimer;
     private CountDownTimer countDownBreakTimer;
     private StartWorkoutViewModel startWorkoutViewModel;
@@ -90,27 +97,10 @@ public class StartWorkoutActivity extends AppCompatActivity {
         bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.home:
-                        //(new Intent(getApplicationContext(), MainActivity.class));
-                        //overridePendingTransition(0, 0);
-                        return false;
-                    case R.id.exercises:
-                        //startActivity(new Intent(getApplicationContext(), ExercisesActivity.class));
-                        //overridePendingTransition(0, 0);
-                        return false;
-                    case R.id.work:
-                        //startActivity(new Intent(getApplicationContext(), CategoryActivity.class));
-                        //overridePendingTransition(0, 0);
-                        return false;
-                    case R.id.profile:
-                        //startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
-                        //overridePendingTransition(0, 0);
-                        return false;
-                }
                 return false;
             }
         });
+
         startWorkoutViewModel = new ViewModelProvider(this).get(StartWorkoutViewModel.class);
         /*Initialize components*/
         textView_exerciseName = findViewById(R.id.text_view_exercise_name_in_workout);
@@ -121,6 +111,7 @@ public class StartWorkoutActivity extends AppCompatActivity {
         textView_seriesNumber = findViewById(R.id.text_view_series_number);
         /*Initialize data from intent*/
         Intent data = getIntent();
+        workout_id = data.getStringExtra(StartWorkoutActivity.EXTRA_WORKOUT_ID);
 
         List<Long> exerciseSetIdsList = startWorkoutViewModel.getLastIds();
         exercise_set1_id = exerciseSetIdsList.get(3);
@@ -173,6 +164,7 @@ public class StartWorkoutActivity extends AppCompatActivity {
         int resID = getResources().getIdentifier(iconName, "drawable", getPackageName());
         imageView_exercise.setImageResource(resID);
     }
+
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
@@ -227,9 +219,12 @@ public class StartWorkoutActivity extends AppCompatActivity {
                     imageView_exercise.setImageResource(resID);
                     break;
                 case 5:
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
-                    EXERCISE_NUMBER = 1;
+                    long workoutId = Long.valueOf(workout_id).longValue();
+                    WorkoutLog workoutLog = new WorkoutLog(workoutId, exercise_set1_id, exercise_set2_id, exercise_set3_id, exercise_set4_id);
+                    startWorkoutViewModel.insert(workoutLog);
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    overridePendingTransition(0, 0);
+                    mediaPlayer_background.stop();
                     break;
             }
             textView_exerciseName.setText(exerciseName);
@@ -240,6 +235,8 @@ public class StartWorkoutActivity extends AppCompatActivity {
             //tutaj rozpocznij kolejne cwiczenie
             if (EXERCISE_NUMBER <= 3) {
                 mediaPlayer_nextExercise.start();
+            } else if (EXERCISE_NUMBER == 5) {
+
             } else {
                 mediaPlayer_lastExercise.start();
             }
@@ -250,8 +247,7 @@ public class StartWorkoutActivity extends AppCompatActivity {
             seriesNumber3 = exerciseSet3.getSet();
             seriesNumber4 = exerciseSet4.getSet();
 
-            int currentSeriesNumber = 0;
-            switch (EXERCISE_NUMBER){
+            switch (EXERCISE_NUMBER) {
                 case 1:
                     currentSeriesNumber = seriesNumber1;
                     break;
@@ -265,7 +261,7 @@ public class StartWorkoutActivity extends AppCompatActivity {
                     currentSeriesNumber = seriesNumber4;
                     break;
             }
-            textView_seriesNumber.setText("Seria " + series+" z "+currentSeriesNumber);
+            textView_seriesNumber.setText("Seria " + series + " z " + currentSeriesNumber);
             //tutaj
             if (!mediaPlayer_background.isPlaying()) {
                 mediaPlayer_background.start();
@@ -348,14 +344,14 @@ public class StartWorkoutActivity extends AppCompatActivity {
                     button_nextExercise.setEnabled(true);
                     isEndedExercise = true;
                 } else if (series == seriesNumber4 && EXERCISE_NUMBER == 4) {
-                    button_nextExercise.setText("Podsumowanie treningu");
+                    button_nextExercise.setText("Zakończ trening");
                     button_nextExercise.setEnabled(true);
                     isEndedExercise = true;
                 } else {
                     textView_countDownTimer.setText("0");
                     button_nextExercise.setText("Trening");
                     series++;
-                    textView_seriesNumber.setText("Seria " + series);
+                    textView_seriesNumber.setText("Seria " + series + " z " + currentSeriesNumber);
                     startExercise();
                 }
             }

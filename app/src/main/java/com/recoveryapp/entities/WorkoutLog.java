@@ -18,17 +18,18 @@ public class WorkoutLog {
 
     private long fk_workoutId;
 
-    private long exerciseId1;
-    private long exerciseId2;
-    private long exerciseId3;
-    private long exerciseId4;
+    private long exerciseSetId1;
+    private long exerciseSetId2;
+    private long exerciseSetId3;
+    private long exerciseSetId4;
 
-    public WorkoutLog(long fk_workoutId, long exerciseId1, long exerciseId2, long exerciseId3, long exerciseId4) {
+
+    public WorkoutLog(long fk_workoutId, long exerciseSetId1, long exerciseSetId2, long exerciseSetId3, long exerciseSetId4) {
         this.fk_workoutId = fk_workoutId;
-        this.exerciseId1 = exerciseId1;
-        this.exerciseId2 = exerciseId2;
-        this.exerciseId3 = exerciseId3;
-        this.exerciseId4 = exerciseId4;
+        this.exerciseSetId1 = exerciseSetId1;
+        this.exerciseSetId2 = exerciseSetId2;
+        this.exerciseSetId3 = exerciseSetId3;
+        this.exerciseSetId4 = exerciseSetId4;
     }
 
     public long getWorkoutLogId() {
@@ -47,35 +48,36 @@ public class WorkoutLog {
         this.fk_workoutId = fk_workoutId;
     }
 
-    public long getExerciseId1() {
-        return exerciseId1;
+    public long getExerciseSetId1() {
+        return exerciseSetId1;
     }
 
-    public void setExerciseId1(long exerciseId1) {
-        this.exerciseId1 = exerciseId1;
+    public void setExerciseSetId1(long exerciseSetId1) {
+        this.exerciseSetId1 = exerciseSetId1;
     }
 
-    public long getExerciseId2() {
-        return exerciseId2;
+    public long getExerciseSetId2() {
+        return exerciseSetId2;
     }
 
-    public void setExerciseId2(long exerciseId2) {
-        this.exerciseId2 = exerciseId2;
+    public void setExerciseSetId2(long exerciseSetId2) {
+        this.exerciseSetId2 = exerciseSetId2;
     }
 
-    public long getExerciseId3() {
-        return exerciseId3;
+    public long getExerciseSetId3() {
+        return exerciseSetId3;
     }
 
-    public void setExerciseId3(long exerciseId3) {
-        this.exerciseId3 = exerciseId3;
+    public void setExerciseSetId3(long exerciseSetId3) {
+        this.exerciseSetId3 = exerciseSetId3;
     }
 
-    public long getExerciseId4() {
-        return exerciseId4;
+    public long getExerciseSetId4() {
+        return exerciseSetId4;
     }
 
-    public void setExerciseId4(long exerciseId4) {
-        this.exerciseId4 = exerciseId4;
+    public void setExerciseSetId4(long exerciseSetId4) {
+        this.exerciseSetId4 = exerciseSetId4;
     }
+
 }

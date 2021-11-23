@@ -22,7 +22,6 @@
             android:fillColor="@color/toolbarTextColor"
             app:menu="@menu/top_app_bar"
             app:title="@string/app_name"
-
             />
 
     </com.google.android.material.appbar.AppBarLayout>

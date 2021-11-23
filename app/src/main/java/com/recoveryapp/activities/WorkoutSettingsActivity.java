@@ -239,7 +239,7 @@ public class WorkoutSettingsActivity extends AppCompatActivity {
     public void previousView(View view) {
         if (pageIndex == 0) {
             Toast.makeText(getApplicationContext(),
-                    "Please click next", Toast.LENGTH_SHORT).show();
+                    "Proszę kliknąć następny", Toast.LENGTH_SHORT).show();
             prevButton.setBackgroundColor(Color.GRAY);
         } else {
             viewFlipper.setInAnimation(this, android.R.anim.slide_in_left);
