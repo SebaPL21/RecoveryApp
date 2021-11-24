@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView android:id="@+id/card"
-    android:layout_width="match_parent"
+    android:layout_width="260dp"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="10dp"
@@ -14,7 +14,7 @@
 
         <!-- Media -->
         <ImageView
-            android:id="@+id/image_view_workout"
+            android:id="@+id/image_view_home_workout"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             app:srcCompat="@drawable/sample_image"
@@ -26,30 +26,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingTop="10dp"
+            android:paddingStart="5dp">
 
             <!-- Title, secondary and supporting text -->
+
             <TextView
-                android:id="@+id/text_view_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TRENING"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@color/dark_primary_color"
+                />
+
+            <TextView
+                android:id="@+id/text_view_home_workout_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tittle"
+                android:paddingTop="10dp"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 />
+
             <TextView
-                android:id="@+id/text_view_workout_description"
+                android:id="@+id/text_view_home_difficult_level"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="description"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorSecondary"
-                />
-            <TextView
-                android:id="@+id/text_view_difficult_level"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:paddingBottom="5dp"
                 android:text="difficult level"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorSecondary"

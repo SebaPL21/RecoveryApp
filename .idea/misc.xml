@@ -4,11 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.28055555555555556" />
+        <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/font/pacifico.xml" value="0.32685185185185184" />
+        <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/font/pacifico_regular.xml" value="0.7548828125" />
         <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/layout/activity_category.xml" value="0.67" />
         <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/layout/activity_exercises.xml" value="0.3958333333333333" />
         <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/layout/activity_exercises_description.xml" value="0.3958333333333333" />
-        <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/layout/activity_main.xml" value="0.3963541666666667" />
-        <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.2" />
+        <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.33" />
         <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/layout/activity_start_workout.xml" value="0.33" />
         <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/layout/activity_summary_workout.xml" value="0.5" />
         <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/layout/activity_workout.xml" value="0.5" />
@@ -16,6 +18,8 @@
         <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/layout/activity_workout_start.xml" value="0.55" />
         <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/layout/category_item.xml" value="0.3958333333333333" />
         <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/layout/exercise_item.xml" value="0.3958333333333333" />
+        <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/layout/home_category_item.xml" value="0.33" />
+        <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/layout/home_workout_item.xml" value="0.5" />
         <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/layout/workout_item.xml" value="0.328125" />
         <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.31979166666666664" />
         <entry key="..\:/AndroidSource/RecoveryApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.31979166666666664" />

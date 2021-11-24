@@ -22,5 +22,10 @@
         <item name="android:background">@color/black_overlay</item>
         <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
     </style>
+    <style name="MaterialToolbar.TitleText" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/pacifico</item>
 
+    </style>
 </resources>
