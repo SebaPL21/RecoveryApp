@@ -1,0 +1,45 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/app_header">
+
+        <EditTextPreference
+            app:key="signature"
+            app:title="@string/signature_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="parostatek"
+            app:entries="@array/songs_entries"
+            app:entryValues="@array/songs_values"
+            app:key="song_name_key"
+            app:title="@string/song_title"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/notifications_header">
+
+        <SwitchPreferenceCompat
+            app:key="notifications"
+            app:title="@string/notifications_title" />
+
+        <ListPreference
+            app:dependency="notifications"
+            app:defaultValue="day"
+            app:entries="@array/notifications_entries"
+            app:entryValues="@array/notifications_values"
+            app:key="notifications_name_key"
+            app:title="@string/notification_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:dependency="notifications"
+            app:defaultValue="18:00"
+            app:entries="@array/notifications_time_entries"
+            app:entryValues="@array/notifications_time_values"
+            app:key="notifications_time_key"
+            app:title="@string/notification_time_title"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

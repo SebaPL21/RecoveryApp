@@ -4,9 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.preference.PreferenceManager;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -33,8 +35,8 @@ import java.util.Timer;
 public class StartWorkoutActivity extends AppCompatActivity {
     public static final String EXTRA_WORKOUT_ID = "com.recoveryapp.activities.EXTRA_WORKOUT_ID";
     public static int EXERCISE_NUMBER = 1;
-    private long exerciseTime = 4000;
-    private long exerciseBreakTime = 2000;
+    private long exerciseTime = 20000;
+    private long exerciseBreakTime = 10000;
     private int series = 1;
     private int currentSeriesNumber = 0;
     private String workout_id;
@@ -101,6 +103,10 @@ public class StartWorkoutActivity extends AppCompatActivity {
             }
         });
 
+        /*Settings*/
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+
         startWorkoutViewModel = new ViewModelProvider(this).get(StartWorkoutViewModel.class);
         /*Initialize components*/
         textView_exerciseName = findViewById(R.id.text_view_exercise_name_in_workout);
@@ -120,8 +126,12 @@ public class StartWorkoutActivity extends AppCompatActivity {
         exercise_set4_id = exerciseSetIdsList.get(0);
 
         /*Inital media player*/
+        String background_song = prefs.getString("song_name_key","parostatek");
+        int songResID = getResources().getIdentifier(background_song, "raw", getPackageName());
+
+
         mediaPlayer_background = MediaPlayer.create(
-                this, R.raw.parostatek);
+                this, songResID);
         mediaPlayer_start = MediaPlayer.create(
                 this, R.raw.zaczynamy);
         mediaPlayer_break = MediaPlayer.create(

@@ -36,6 +36,9 @@
         <entry key="..\:/Android_source/RecoveryApp/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Android_source/RecoveryApp/app/src/main/res/layout/fragment_workout.xml" value="0.25" />
         <entry key="..\:/Android_source/RecoveryApp/app/src/main/res/layout/workout_item.xml" value="0.4" />
+        <entry key="..\:/Users/piotr/AndroidStudioProjects/RecoveryApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/piotr/AndroidStudioProjects/RecoveryApp/app/src/main/res/layout/settings_activity.xml" value="0.2" />
+        <entry key="..\:/Users/piotr/AndroidStudioProjects/RecoveryApp/app/src/main/res/xml/root_preferences.xml" value="0.4235403151065802" />
       </map>
     </option>
   </component>
