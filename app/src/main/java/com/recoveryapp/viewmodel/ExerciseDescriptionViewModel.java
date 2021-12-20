@@ -21,4 +21,7 @@ public class ExerciseDescriptionViewModel extends AndroidViewModel {
         exerciseList = exerciseRepository.getAllExercises();
     }
     public LiveData<List<Exercise>> getExerciseList(){return exerciseList;}
+    public Exercise getExerciseById(long id){
+        return exerciseRepository.findById(id);
+    }
 }

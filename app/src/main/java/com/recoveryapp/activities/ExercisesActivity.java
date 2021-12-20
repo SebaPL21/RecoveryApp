@@ -71,7 +71,10 @@ public class ExercisesActivity extends AppCompatActivity {
             @Override
             public void onItemClick(Exercise exercise) {
                 Intent intent = new Intent(getApplicationContext(), ExercisesDescriptionActivity.class);
-                intent.putExtra(ExercisesDescriptionActivity.Extra_Exercise_ID,String.valueOf(exercise.getExerciseId()));
+                //intent.putExtra(ExercisesDescriptionActivity.Extra_Exercise_ID,String.valueOf(exercise.getExerciseId()));
+                intent.putExtra(DescriptionFragment.Extra_Exercise_ID,String.valueOf(exercise.getExerciseId()));
+
+                System.out.println(exercise.getExerciseId()+"______________");
                 startActivity(intent);
                 overridePendingTransition(0,0);
             }

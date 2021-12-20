@@ -1,41 +1,77 @@
 package com.recoveryapp.activities;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
+import android.app.Fragment;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.android.material.tabs.TabLayout;
 import com.recoveryapp.R;
-import com.recoveryapp.adapters.ExerciseDescriptionAdapter;
+import com.recoveryapp.adapters.FragmentAdapter;
 import com.recoveryapp.entities.Exercise;
 import com.recoveryapp.viewmodel.ExerciseDescriptionViewModel;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ExercisesDescriptionActivity extends AppCompatActivity {
     private ExerciseDescriptionViewModel exercisesViewModel;
     public static final String Extra_Exercise_ID = "com.recoveryapp.activities.Extra_Exercise_ID";
     private String exercise_id;
+    private TabLayout tabLayout;
+    private ViewPager2 viewPager2;
+    private FragmentAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercises_description);
-
         Intent data = getIntent();
         exercise_id = data.getStringExtra(ExercisesDescriptionActivity.Extra_Exercise_ID);
+        System.out.println("id cwiczenia: "+exercise_id);
+        tabLayout = findViewById(R.id.exercise_description_tab_view);
+        viewPager2 = findViewById(R.id.view_pager);
 
+        FragmentManager fm  = getSupportFragmentManager();
+        adapter =  new FragmentAdapter(fm,getLifecycle());
+        viewPager2.setAdapter(adapter);
+        tabLayout.addTab(tabLayout.newTab().setText("Opis ćwiczenia"));
+        tabLayout.addTab(tabLayout.newTab().setText("Jak wkonać ćwiczenie"));
+
+        exercisesViewModel = new ViewModelProvider(this).get(ExerciseDescriptionViewModel.class);
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager2.setCurrentItem(tab.getPosition());
+
+                System.out.println("------"+ exercise_id);
+                overridePendingTransition(0,0);
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                tabLayout.selectTab(tabLayout.getTabAt(position));
+            }
+        });
         BottomNavigationView bottomNavigation = findViewById(R.id.bottomNavigation);
         bottomNavigation.setSelectedItemId(R.id.exercises);
         bottomNavigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -62,40 +98,16 @@ public class ExercisesDescriptionActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-        RecyclerView recyclerView = findViewById(R.id.exercise_description);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setHasFixedSize(true);
-
-        ExerciseDescriptionAdapter adapter = new ExerciseDescriptionAdapter();
-        recyclerView.setAdapter(adapter);
-
-        exercisesViewModel = new ViewModelProvider(this).get(ExerciseDescriptionViewModel.class);
-
-        exercisesViewModel.getExerciseList().observe(this, new Observer<List<Exercise>>() {
-            @RequiresApi(api = Build.VERSION_CODES.N)
-            @Override
-            public void onChanged(List<Exercise> exercises) {
-                long exerciseid = Long.valueOf(exercise_id).longValue();
-                List<Exercise> list = new ArrayList<>();
-                for(Exercise x: exercises){
-                    if(x.getExerciseId()==exerciseid){
-                        list.add(x);
-                    }
-                }
-                adapter.setExercisesDesriptionList(list);
-            }
-        });
-        adapter.setOnClickListener(new ExerciseDescriptionAdapter.OnClickListener(){
-
-            @Override
-            public void onItemClick(Exercise exercise) {
-               /*
-                Intent intent = new Intent(getApplicationContext(), WorkoutActivity.class);
-                intent.putExtra(WorkoutActivity.EXTRA_CATEGORY_ID,String.valueOf(workout.getCategoryId()));
-                startActivity(intent);
-                overridePendingTransition(0,0);*/
-            }
-        });
     }
+    public Exercise getExecise(){
+        Exercise exercise;
+        Intent data = getIntent();
+        exercise_id = data.getStringExtra(ExercisesDescriptionActivity.Extra_Exercise_ID);
+        int exer = Integer.valueOf(exercise_id);
+        exercise =exercisesViewModel.getExerciseById(exer);
+       // System.out.println(exercise.getName());
+        return exercise;
+    }
+
+
 }

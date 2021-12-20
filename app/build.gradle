@@ -49,4 +49,8 @@ dependencies {
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
 
+
+    //viewPrager2
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+
 }

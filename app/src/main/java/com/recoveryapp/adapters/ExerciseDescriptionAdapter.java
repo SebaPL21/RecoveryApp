@@ -21,7 +21,7 @@ public class ExerciseDescriptionAdapter extends RecyclerView.Adapter<ExerciseDes
     @Override
     public ExerciseDescriptionHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.exercise_description_item,parent,false);
+                .inflate(R.layout.fragment_description,parent,false);
         return new ExerciseDescriptionHolder(itemView);
     }
 
@@ -30,13 +30,14 @@ public class ExerciseDescriptionAdapter extends RecyclerView.Adapter<ExerciseDes
     Exercise currentExercise= exercises.get(position);
     holder.name.setText(currentExercise.getName());
     holder.description.setText(currentExercise.getDescription());
-    holder.level.setText("Poziom trudności: " + String.valueOf(currentExercise.getDifficultLevel()));
+    //holder.level.setText("Poziom trudności: " + String.valueOf(currentExercise.getDifficultLevel()));
     }
 
     @Override
     public int getItemCount() {
         return exercises.size();
     }
+
     public void setExercisesDesriptionList(List<Exercise> exercise){
         this.exercises = exercise;
         notifyDataSetChanged();
@@ -46,13 +47,13 @@ public class ExerciseDescriptionAdapter extends RecyclerView.Adapter<ExerciseDes
     class ExerciseDescriptionHolder extends  RecyclerView.ViewHolder{
         private TextView name;
         private TextView description;
-        private TextView level;
+      //  private TextView level;
 
         public ExerciseDescriptionHolder(@NonNull View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.text_view_name);
-            description = itemView.findViewById(R.id.exercise_description);
-            level = itemView.findViewById(R.id.text_view_difficult_level);
+            name = itemView.findViewById(R.id.fragment_name);
+            description = itemView.findViewById(R.id.fragment_description);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

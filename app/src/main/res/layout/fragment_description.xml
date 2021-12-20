@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activities.DescriptionFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+        <TextView
+        android:id="@+id/fragment_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name exercise"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="4dp"
+        android:textSize="25dp"
+        />
+
+        <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="194dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/sample_image" />
+
+        <TextView
+            android:id="@+id/fragment_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opis ćwiczenia"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="25dp"
+            android:textSize="20dp"
+            />
+
+    </LinearLayout>
+
+
+
+</FrameLayout>
