@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
+    app:cardCornerRadius="10dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -13,8 +14,9 @@
 
         <!-- Media -->
         <ImageView
+            android:id="@+id/image_view_workout"
             android:layout_width="match_parent"
-            android:layout_height="194dp"
+            android:layout_height="150dp"
             app:srcCompat="@drawable/sample_image"
             android:scaleType="centerCrop"
             android:contentDescription="Description"

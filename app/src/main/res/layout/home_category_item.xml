@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Media -->
+        <ImageView
+            android:id="@+id/image_view_home_category"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:contentDescription="Description"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/sample_image" />
+
+        <TextView
+            android:id="@+id/text_view_home_category_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/image_view_home_category"
+            android:layout_gravity="left"
+            android:layout_marginBottom="20dip"
+            android:background="#AA000000"
+            android:padding="12dip"
+            android:text="SomeText"
+            android:textColor="#ffffffff" />
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -15,10 +15,21 @@ public class WorkoutLog {
     private long workoutLogId;
 
     //private Date date;
+
     private long fk_workoutId;
 
-    public WorkoutLog(long fk_workoutId) {
+    private long exerciseSetId1;
+    private long exerciseSetId2;
+    private long exerciseSetId3;
+    private long exerciseSetId4;
+
+
+    public WorkoutLog(long fk_workoutId, long exerciseSetId1, long exerciseSetId2, long exerciseSetId3, long exerciseSetId4) {
         this.fk_workoutId = fk_workoutId;
+        this.exerciseSetId1 = exerciseSetId1;
+        this.exerciseSetId2 = exerciseSetId2;
+        this.exerciseSetId3 = exerciseSetId3;
+        this.exerciseSetId4 = exerciseSetId4;
     }
 
     public long getWorkoutLogId() {
@@ -29,8 +40,44 @@ public class WorkoutLog {
         this.workoutLogId = workoutLogId;
     }
 
-
     public long getFk_workoutId() {
         return fk_workoutId;
     }
+
+    public void setFk_workoutId(long fk_workoutId) {
+        this.fk_workoutId = fk_workoutId;
+    }
+
+    public long getExerciseSetId1() {
+        return exerciseSetId1;
+    }
+
+    public void setExerciseSetId1(long exerciseSetId1) {
+        this.exerciseSetId1 = exerciseSetId1;
+    }
+
+    public long getExerciseSetId2() {
+        return exerciseSetId2;
+    }
+
+    public void setExerciseSetId2(long exerciseSetId2) {
+        this.exerciseSetId2 = exerciseSetId2;
+    }
+
+    public long getExerciseSetId3() {
+        return exerciseSetId3;
+    }
+
+    public void setExerciseSetId3(long exerciseSetId3) {
+        this.exerciseSetId3 = exerciseSetId3;
+    }
+
+    public long getExerciseSetId4() {
+        return exerciseSetId4;
+    }
+
+    public void setExerciseSetId4(long exerciseSetId4) {
+        this.exerciseSetId4 = exerciseSetId4;
+    }
+
 }

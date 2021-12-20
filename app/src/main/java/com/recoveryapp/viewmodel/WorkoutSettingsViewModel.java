@@ -53,4 +53,5 @@ public class WorkoutSettingsViewModel extends AndroidViewModel {
     public List<Long> getLastIds(){
         return exerciseSetRepository.getLastIds();
     }
+
 }

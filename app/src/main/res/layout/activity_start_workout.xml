@@ -22,7 +22,8 @@
             android:fillColor="@color/toolbarTextColor"
             app:menu="@menu/top_app_bar"
             app:title="@string/app_name"
-
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/MaterialToolbar.TitleText"
             />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -38,13 +39,97 @@
         style="@style/Widget.App.BottomNavigationView"/>
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/text_view_exercise_name_in_workout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start Workout"
+        android:layout_marginStart="20dp"
+        android:text="Nazwa cwiczenia"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:layout_constraintVertical_bias="0.056" />
+
+    <TextView
+        android:id="@+id/text_view_how_to_do_workout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Jak cwiczyc"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:layout_constraintVertical_bias="0.13" />
+
+    <ImageView
+        android:id="@+id/image_view_exercise_in_workout"
+        android:layout_width="333dp"
+        android:layout_height="203dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:layout_constraintVertical_bias="0.35"
+        app:srcCompat="@drawable/sample_image" />
+
+    <Button
+        android:id="@+id/button_next_exercise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="nextExercise"
+        android:text="Start"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:layout_constraintVertical_bias="0.758" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_workout"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="263dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:progress="25"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:layout_constraintVertical_bias="0.014" />
+
+    <TextView
+        android:id="@+id/text_view_count_down_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textSize="28sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/button_next_exercise"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_view_exercise_in_workout"
+        app:layout_constraintVertical_bias="0.717" />
+
+    <TextView
+        android:id="@+id/text_view_series_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:layout_constraintVertical_bias="0.605" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

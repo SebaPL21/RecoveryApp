@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView android:id="@+id/card"
+    android:layout_width="260dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Media -->
+        <ImageView
+            android:id="@+id/image_view_home_workout"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/sample_image"
+            android:scaleType="centerCrop"
+            android:contentDescription="Description"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="10dp"
+            android:paddingStart="5dp">
+
+            <!-- Title, secondary and supporting text -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TRENING"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@color/dark_primary_color"
+                />
+
+            <TextView
+                android:id="@+id/text_view_home_workout_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tittle"
+                android:paddingTop="10dp"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                />
+
+            <TextView
+                android:id="@+id/text_view_home_difficult_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingBottom="5dp"
+                android:text="difficult level"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
