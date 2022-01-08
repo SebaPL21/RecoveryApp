@@ -123,8 +123,12 @@ public class MainActivity extends AppCompatActivity {
                         overridePendingTransition(0, 0);
                         break;
                     case R.id.about_as:
+                        startActivity(new Intent(getApplicationContext(), AboutUsActivity.class));
+                        overridePendingTransition(0, 0);
                         break;
                     case R.id.help:
+                        startActivity(new Intent(getApplicationContext(), HelpActivity.class));
+                        overridePendingTransition(0, 0);
                 }
                 return true;
             }

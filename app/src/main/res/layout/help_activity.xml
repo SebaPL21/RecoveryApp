@@ -18,7 +18,9 @@
             android:layout_height="?attr/actionBarSize"
             android:fillColor="@color/toolbarTextColor"
             app:menu="@menu/top_app_bar"
-            app:title="@string/app_name"/>
+            app:title="@string/app_name"
+            app:titleCentered="true"
+            app:titleTextAppearance="@style/MaterialToolbar.TitleText" />
 
     </com.google.android.material.appbar.AppBarLayout>
     <LinearLayout
@@ -39,6 +41,7 @@
             android:text="Pomoc"
             android:textSize="30dp"
             android:paddingLeft="20dp"
+            android:textColor="@color/black"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -47,8 +50,8 @@
             android:layout_height="wrap_content"
             android:text="Potrzebujesz  pomocy hehe
 nie ma jej radź sobie sam bo aplikacja jest już martwa.
-A jak już musisz nas poinformować o błedach to wyślij maila na "
-            android:textSize="30dp"
+A jak już musisz nas poinformować o błedach to wyślij maila na: "
+            android:textSize="17dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             tools:ignore="MissingConstraints" />
@@ -57,12 +60,22 @@ A jak już musisz nas poinformować o błedach to wyślij maila na "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="suppoerNotFound@gmail.com"
-            android:textSize="30dp"
+            android:textSize="17dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             tools:ignore="MissingConstraints"
             android:textColor="#FE00"/>
-
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pobrane"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"/>
+        <FrameLayout
+            android:id="@+id/help"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
     </LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"

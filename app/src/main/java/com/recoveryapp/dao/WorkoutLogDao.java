@@ -23,9 +23,12 @@ public interface WorkoutLogDao {
     @Delete
     void delete(WorkoutLog workoutLog);
 
-    @Query("Select * FROM workout_log_table")
+   /* @Query("Select * FROM workout_log_table")
     LiveData<List<WorkoutLog>> getAllWorkoutLogs();
-
+*/
     @Query("SELECT * FROM workout_log_table WHERE workoutLogId = :id")
     WorkoutLog findById(long id);
+
+    @Query("Select * FROM workout_log_table ORDER BY workoutLogId DESC LIMIT 5")
+    LiveData<List<WorkoutLog>> getAllWorkoutLogs();
 }

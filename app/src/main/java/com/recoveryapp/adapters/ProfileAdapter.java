@@ -10,16 +10,20 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.github.mikephil.charting.charts.PieChart;
 import com.recoveryapp.R;
 import com.recoveryapp.entities.Category;
 import com.recoveryapp.entities.Exercise;
 import com.recoveryapp.viewmodel.CategoryViewModel;
+import com.recoveryapp.viewmodel.ProfileViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileAdapter extends RecyclerView.Adapter <ProfileAdapter.ProfileHolder>{
     private List<Exercise> exercises = new ArrayList<>();
+    private ProfileViewModel logs;
+
     @NonNull
     @Override
     public ProfileHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -30,10 +34,11 @@ public class ProfileAdapter extends RecyclerView.Adapter <ProfileAdapter.Profile
 
     @Override
     public void onBindViewHolder(@NonNull ProfileHolder holder, int position) {
-        Exercise currentExercise= exercises.get(1);
-        holder.ExLvl.setText(String.valueOf(currentExercise.getDifficultLevel()));
+        Exercise currentExercise= exercises.get(position);
+      //  holder.ExLvl.setText(String.valueOf(currentExercise.getDifficultLevel()));
 
     }
+
 
     @Override
     public int getItemCount() {
@@ -45,13 +50,10 @@ public class ProfileAdapter extends RecyclerView.Adapter <ProfileAdapter.Profile
         notifyDataSetChanged();
     }
     public class ProfileHolder extends RecyclerView.ViewHolder {
-        private TextView ExLvl;
-        private TextView Exname;
-
+        PieChart pieChart;
         public ProfileHolder(@NonNull View profileV) {
             super(profileV);
-            ExLvl = profileV.findViewById(R.id.poziomcw);
-            Exname = profileV.findViewById(R.id.exerName);
+
+        }
     }
-}
 }

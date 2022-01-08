@@ -2,6 +2,7 @@ package com.recoveryapp.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -79,6 +80,27 @@ public class CategoryActivity extends AppCompatActivity {
                 intent.putExtra(WorkoutActivity.EXTRA_CATEGORY_ID,String.valueOf(category.getCategoryId()));
                 startActivity(intent);
                 overridePendingTransition(0,0);
+            }
+        });
+        //menu toolbar
+        Toolbar toolbar = findViewById(R.id.topAppBar);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.settings:
+                        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                        overridePendingTransition(0, 0);
+                        break;
+                    case R.id.about_as:
+                        startActivity(new Intent(getApplicationContext(), AboutUsActivity.class));
+                        overridePendingTransition(0, 0);
+                        break;
+                    case R.id.help:
+                        startActivity(new Intent(getApplicationContext(), HelpActivity.class));
+                        overridePendingTransition(0, 0);
+                }
+                return true;
             }
         });
     }

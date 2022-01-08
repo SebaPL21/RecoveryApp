@@ -2,6 +2,7 @@ package com.recoveryapp.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -114,6 +115,28 @@ public class WorkoutSettingsActivity extends AppCompatActivity {
                         return true;
                 }
                 return false;
+            }
+        });
+
+        //menu toolbar
+        Toolbar toolbar = findViewById(R.id.topAppBar);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.settings:
+                        startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                        overridePendingTransition(0, 0);
+                        break;
+                    case R.id.about_as:
+                        startActivity(new Intent(getApplicationContext(), AboutUsActivity.class));
+                        overridePendingTransition(0, 0);
+                        break;
+                    case R.id.help:
+                        startActivity(new Intent(getApplicationContext(), HelpActivity.class));
+                        overridePendingTransition(0, 0);
+                }
+                return true;
             }
         });
         /*View flipper*/
