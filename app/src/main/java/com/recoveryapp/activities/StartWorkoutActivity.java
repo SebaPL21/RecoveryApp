@@ -36,8 +36,8 @@ import java.util.Timer;
 public class StartWorkoutActivity extends AppCompatActivity {
     public static final String EXTRA_WORKOUT_ID = "com.recoveryapp.activities.EXTRA_WORKOUT_ID";
     public static int EXERCISE_NUMBER = 1;
-    private long exerciseTime = 20000;
-    private long exerciseBreakTime = 10000;
+    private long exerciseTime = 2000;
+    private long exerciseBreakTime = 1000;
     private int series = 1;
     private int currentSeriesNumber = 0;
     private String workout_id;

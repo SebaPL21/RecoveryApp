@@ -52,22 +52,18 @@ public class DescriptionFragment extends Fragment {
     TextView exerciseSimpleDesc;
     ImageView imageView;
     ExerciseDescriptionViewModel viewModel;
+    Context mContext;
 
 
 
     public DescriptionFragment() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Description.
-     */
-    // TODO: Rename and change types and number of parameters
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+         mContext=context;
+    }
     public static DescriptionFragment newInstance(String param1) {
         DescriptionFragment fragment = new DescriptionFragment();
         Bundle args = new Bundle();
@@ -82,48 +78,30 @@ public class DescriptionFragment extends Fragment {
         super.onCreate(savedInstanceState);
         Intent data = new Intent();
         exercise_id = data.getStringExtra(DescriptionFragment.Extra_Exercise_ID);
-
-        //exerciseName = view.findViewById(R.id.fragment_name);
-        //view.findViewById(R.id.fragment_description);
-        //System.out.println(exercise_id+"asdasdasda--++++");
-        /* if (getArguments() != null) {
-            name = getArguments().getString(exercise.getName());
-            description = getArguments().getString(exercise_id);
-        }*/
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-       // System.out.println(exercise_id+"asdasdasda--++++");
          ExercisesDescriptionActivity exer = (ExercisesDescriptionActivity) getActivity();
          Exercise exerciseMore = exer.getExecise();
-        //System.out.println(exerciseMore.getName());
+;
         String desc =  String.valueOf(exerciseMore.getDescription());
         String name = String.valueOf(exerciseMore.getName());
 
+        /*Image view*/
+        String iconName = exerciseMore.getImagePath();
+        int resID = getResources().getIdentifier(iconName, "drawable", mContext.getPackageName());
 
-        String iconName =  exerciseMore.getImagePath();
-        System.out.println(iconName);
-
-
-        //System.out.println(desc);
         View v = inflater.inflate(R.layout.fragment_description, container, false);
-       // int resID = context.getResources().getIdentifier(iconName, "drawable", context.getPackageName());
+
         exerciseName = v.findViewById(R.id.fragment_name);
         exerciseSimpleDesc = v.findViewById(R.id.fragment_desc);
         imageView =v.findViewById(R.id.description_image);
 
         exerciseName.setText(name);
-        exerciseSimpleDesc.setText(desc);
-       // imageView.setImageResource(icon);
+        exerciseSimpleDesc.setText("Kategoria: "+ desc);
+        imageView.setImageResource(resID);
         return v;
     }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
-
-      }
 }

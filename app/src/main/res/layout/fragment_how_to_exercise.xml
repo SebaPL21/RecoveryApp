@@ -15,6 +15,7 @@
 
 
         <ImageView
+            android:id="@+id/how_to_exercise_image"
             android:layout_width="wrap_content"
             android:layout_height="194dp"
             android:layout_marginTop="4dp"
@@ -29,7 +30,7 @@
             android:layout_height="wrap_content"
             android:text="Opis ćwiczenia"
             android:layout_margin="25dp"
-            android:textSize="20dp"
+            android:textSize="17dp"
             />
 
         <TextView
@@ -38,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:text="Poziom trudności"
-            android:textSize="20dp"
+            android:textSize="17dp"
             />
 
     </LinearLayout>

@@ -35,7 +35,6 @@ public class ExercisesDescriptionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_exercises_description);
         Intent data = getIntent();
         exercise_id = data.getStringExtra(ExercisesDescriptionActivity.Extra_Exercise_ID);
-        System.out.println("id cwiczenia: "+exercise_id);
         tabLayout = findViewById(R.id.exercise_description_tab_view);
         viewPager2 = findViewById(R.id.view_pager);
 
@@ -43,7 +42,7 @@ public class ExercisesDescriptionActivity extends AppCompatActivity {
         adapter =  new FragmentAdapter(fm,getLifecycle());
         viewPager2.setAdapter(adapter);
         tabLayout.addTab(tabLayout.newTab().setText("Opis ćwiczenia"));
-        tabLayout.addTab(tabLayout.newTab().setText("Jak wkonać ćwiczenie"));
+        tabLayout.addTab(tabLayout.newTab().setText("Jak wykonać ćwiczenie"));
 
         exercisesViewModel = new ViewModelProvider(this).get(ExerciseDescriptionViewModel.class);
 
@@ -51,8 +50,6 @@ public class ExercisesDescriptionActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager2.setCurrentItem(tab.getPosition());
-
-                System.out.println("------"+ exercise_id);
                 overridePendingTransition(0,0);
 
             }
@@ -127,7 +124,6 @@ public class ExercisesDescriptionActivity extends AppCompatActivity {
         exercise_id = data.getStringExtra(ExercisesDescriptionActivity.Extra_Exercise_ID);
         int exer = Integer.valueOf(exercise_id);
         exercise =exercisesViewModel.getExerciseById(exer);
-       // System.out.println(exercise.getName());
         return exercise;
     }
 

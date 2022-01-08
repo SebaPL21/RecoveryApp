@@ -24,6 +24,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.recoveryapp.R;
+import com.recoveryapp.adapters.CategoryAdapter;
 import com.recoveryapp.adapters.ExercisesAdapter;
 import com.recoveryapp.adapters.ProfileAdapter;
 import com.recoveryapp.entities.Category;
@@ -37,9 +38,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileActivity extends AppCompatActivity {
-    private  ExercisesViewModel exercisesViewModel;
-    private ProfileAdapter profileAdapter;//logs
-    private PieChart pieChart;
+    private ProfileViewModel profileViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,62 +91,20 @@ public class ProfileActivity extends AppCompatActivity {
                 return true;
             }
         });
-        //pieChart.findViewById(R.id.pieChart);
-        //setupPieChart();
-        //loadPie();
+        RecyclerView recycler = findViewById(R.id.activityProfile);
+        recycler.setLayoutManager(new LinearLayoutManager(this));
+        recycler.setHasFixedSize(true);
 
-        //RecyclerView recycler = findViewById(R.id.activityProfile);
-        //recycler.setLayoutManager(new LinearLayoutManager(this));
-        //recycler.setHasFixedSize(true);
-    }
-    private void setupPieChart(){
-        pieChart.setDrawHoleEnabled(true);
-        pieChart.setUsePercentValues(true);
-        pieChart.setEntryLabelTextSize(12);
-        pieChart.setEntryLabelColor(Color.BLACK);
-        pieChart.setCenterText("ĆWICZENIA");
-        pieChart.setCenterTextSize(24);
-        pieChart.getDescription().setEnabled(false);
+        ProfileAdapter adapter = new ProfileAdapter();
+        recycler.setAdapter(adapter);
 
+        profileViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
 
-        Legend l = pieChart.getLegend();
-        l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
-        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
-        l.setOrientation(Legend.LegendOrientation.VERTICAL);
-        l.setDrawInside(false);
-        l.setEnabled(true);
-    }
-
-
-    private void loadPie(){
-        ArrayList<PieEntry>entries = new ArrayList<>();
-        entries.add(new PieEntry(0.2f,"Sklony"));
-        entries.add(new PieEntry(0.15f,"przysiady"));
-        entries.add(new PieEntry(0.1f,"kregi"));
-        entries.add(new PieEntry(0.25f,"Kolana"));
-        entries.add(new PieEntry(0.3f,"Nadgar"));
-
-
-        ArrayList<Integer> colors = new ArrayList<>();
-        for(int color: ColorTemplate.MATERIAL_COLORS){
-            colors.add(color);
-        }
-        for (int color:ColorTemplate.MATERIAL_COLORS){
-            colors.add(color);
-        }
-
-        PieDataSet dataSet = new PieDataSet(entries, "Ćwiczenia");
-        dataSet.setColors(colors);
-
-        PieData data= new PieData(dataSet);
-        data.setDrawValues(true);
-        data.setValueFormatter(new PercentFormatter(pieChart));
-        data.setValueTextSize(12f);
-        data.setValueTextColor(Color.BLACK);
-
-        pieChart.setData(data);
-        pieChart.invalidate();
-
-        pieChart.animateY(1400,Easing.EaseInOutQuad);
+        profileViewModel.getWorkoutLog().observe(this, new Observer<List<WorkoutLog>>() {
+            @Override
+            public void onChanged(List<WorkoutLog> workoutLogs) {
+                adapter.setWorkoutLogs(workoutLogs);
+            }
+        });
     }
 }

@@ -29,6 +29,6 @@ public interface WorkoutLogDao {
     @Query("SELECT * FROM workout_log_table WHERE workoutLogId = :id")
     WorkoutLog findById(long id);
 
-    @Query("Select * FROM workout_log_table ORDER BY workoutLogId DESC LIMIT 5")
+    @Query("Select * FROM workout_log_table")
     LiveData<List<WorkoutLog>> getAllWorkoutLogs();
 }

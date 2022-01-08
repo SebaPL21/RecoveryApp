@@ -36,8 +36,14 @@
         <entry key="..\:/Android_source/RecoveryApp/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Android_source/RecoveryApp/app/src/main/res/layout/fragment_workout.xml" value="0.25" />
         <entry key="..\:/Android_source/RecoveryApp/app/src/main/res/layout/workout_item.xml" value="0.4" />
+        <entry key="..\:/Users/piotr/AndroidStudioProjects/RecoveryApp/app/src/main/res/layout/activity_exercises_description.xml" value="0.33" />
         <entry key="..\:/Users/piotr/AndroidStudioProjects/RecoveryApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/piotr/AndroidStudioProjects/RecoveryApp/app/src/main/res/layout/activity_profile.xml" value="0.33" />
+        <entry key="..\:/Users/piotr/AndroidStudioProjects/RecoveryApp/app/src/main/res/layout/activity_start_workout.xml" value="0.33" />
+        <entry key="..\:/Users/piotr/AndroidStudioProjects/RecoveryApp/app/src/main/res/layout/profile_item.xml" value="0.32708333333333334" />
         <entry key="..\:/Users/piotr/AndroidStudioProjects/RecoveryApp/app/src/main/res/layout/settings_activity.xml" value="0.2" />
+        <entry key="..\:/Users/piotr/AndroidStudioProjects/RecoveryApp/app/src/main/res/xml/root_about_us.xml" value="0.32708333333333334" />
+        <entry key="..\:/Users/piotr/AndroidStudioProjects/RecoveryApp/app/src/main/res/xml/root_help.xml" value="0.32708333333333334" />
         <entry key="..\:/Users/piotr/AndroidStudioProjects/RecoveryApp/app/src/main/res/xml/root_preferences.xml" value="0.4235403151065802" />
         <entry key="..\:/Users/sebas/OneDrive/Pulpit/AppCore/RecoveryApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
         <entry key="..\:/Users/sebas/OneDrive/Pulpit/AppCore/RecoveryApp/app/src/main/res/layout/about_us.xml" value="0.36666666666666664" />
