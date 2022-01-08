@@ -13,6 +13,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
@@ -90,10 +91,9 @@ public class ProfileActivity extends AppCompatActivity {
                 return true;
             }
         });
-        pieChart.findViewById(R.id.pieChart2);
-
-        setupPieChart();
-        loadPie();
+        //pieChart.findViewById(R.id.pieChart);
+        //setupPieChart();
+        //loadPie();
 
         //RecyclerView recycler = findViewById(R.id.activityProfile);
         //recycler.setLayoutManager(new LinearLayoutManager(this));
@@ -146,5 +146,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         pieChart.setData(data);
         pieChart.invalidate();
+
+        pieChart.animateY(1400,Easing.EaseInOutQuad);
     }
 }

@@ -1,8 +1,10 @@
 package com.recoveryapp.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -30,6 +32,12 @@ public class ExercisesAdapter extends RecyclerView.Adapter <ExercisesAdapter.Exe
         Exercise currentExercise= exercises.get(position);
         holder.tViewTitle.setText(currentExercise.getName());
         holder.tViewDescription.setText(currentExercise.getDescription());
+
+        /*settig image*/
+        Context context =  holder.imageView.getContext();
+        String iconName = currentExercise.getImagePath();
+        int resID = context.getResources().getIdentifier(iconName, "drawable", context.getPackageName());
+        holder.imageView.setImageResource(resID);
     }
 
     @Override
@@ -45,11 +53,13 @@ public class ExercisesAdapter extends RecyclerView.Adapter <ExercisesAdapter.Exe
     class ExerciseHolder extends RecyclerView.ViewHolder{
         private TextView tViewTitle;
         private TextView tViewDescription;
+        private ImageView imageView;
 
         public ExerciseHolder(@NonNull View itemView) {
             super(itemView);
             tViewTitle = itemView.findViewById(R.id.text_view_exercise_name);
             tViewDescription= itemView.findViewById(R.id.text_view_exercise_decription);
+            imageView = itemView.findViewById(R.id.image_view_exrcice);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

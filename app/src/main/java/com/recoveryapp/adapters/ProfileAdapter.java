@@ -38,8 +38,6 @@ public class ProfileAdapter extends RecyclerView.Adapter <ProfileAdapter.Profile
       //  holder.ExLvl.setText(String.valueOf(currentExercise.getDifficultLevel()));
 
     }
-
-
     @Override
     public int getItemCount() {
        return 0;

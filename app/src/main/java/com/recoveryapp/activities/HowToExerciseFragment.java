@@ -1,5 +1,6 @@
 package com.recoveryapp.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -35,6 +36,9 @@ public class HowToExerciseFragment extends Fragment {
 
         level.setText(lvl);
         description.setText(desc);
+
+
+
         return v;
     }
 }
