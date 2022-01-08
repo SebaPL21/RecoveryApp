@@ -5,13 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
@@ -27,9 +30,11 @@ import com.recoveryapp.R;
 import com.recoveryapp.adapters.CategoryAdapter;
 import com.recoveryapp.adapters.ExercisesAdapter;
 import com.recoveryapp.adapters.ProfileAdapter;
+import com.recoveryapp.adapters.WorkoutAdapter;
 import com.recoveryapp.entities.Category;
 import com.recoveryapp.entities.Exercise;
 import com.recoveryapp.entities.WorkoutLog;
+import com.recoveryapp.repositories.WorkoutRepository;
 import com.recoveryapp.viewmodel.CategoryViewModel;
 import com.recoveryapp.viewmodel.ExercisesViewModel;
 import com.recoveryapp.viewmodel.ProfileViewModel;
@@ -91,12 +96,12 @@ public class ProfileActivity extends AppCompatActivity {
                 return true;
             }
         });
-        RecyclerView recycler = findViewById(R.id.activityProfile);
-        recycler.setLayoutManager(new LinearLayoutManager(this));
-        recycler.setHasFixedSize(true);
+        RecyclerView recyclerView = findViewById(R.id.workout_log_recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
 
-        ProfileAdapter adapter = new ProfileAdapter();
-        recycler.setAdapter(adapter);
+        ProfileAdapter adapter = new ProfileAdapter(getApplication());
+        recyclerView.setAdapter(adapter);
 
         profileViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
 
@@ -106,5 +111,14 @@ public class ProfileActivity extends AppCompatActivity {
                 adapter.setWorkoutLogs(workoutLogs);
             }
         });
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        String profile_name = prefs.getString("signature","Twoje imię");
+
+        if(!profile_name.equals("Twoje imię")){
+            TextView textView = findViewById(R.id.statystyki);
+            textView.setText("Cześć "+profile_name);
+        }
     }
 }

@@ -143,6 +143,8 @@ public abstract class RecoveryDatabase extends RoomDatabase {
             workoutExerciseSetDao.insert(new WorkoutExerciseSetCrossRef(3,11));
             workoutExerciseSetDao.insert(new WorkoutExerciseSetCrossRef(3,12));
 
+            workoutLogDao.insert(new WorkoutLog(1,1,2,3,4));
+
             exerciseDao.insert(new Exercise("Odwodzenie ręki","Ćwiczenie rozluźniące staw nadgarstka","Pozycja wyjściowa: pozycja siedząca, przedramię spoczywa na stole w pozycji nawrócenia.\n" +
                     "Ruch: \n* Wykonaj odwodzenie łokciowe i promieniowe ręki.\n" +
                     "* Oddychaj regularnie.\n" +
@@ -307,8 +309,6 @@ public abstract class RecoveryDatabase extends RoomDatabase {
             workoutExerciseSetDao.insert(new WorkoutExerciseSetCrossRef(9,34));
             workoutExerciseSetDao.insert(new WorkoutExerciseSetCrossRef(9,35));
             workoutExerciseSetDao.insert(new WorkoutExerciseSetCrossRef(9,36));
-
-            workoutLogDao.insert(new WorkoutLog(1,1,2,3,4));
             return null;
         }
     }

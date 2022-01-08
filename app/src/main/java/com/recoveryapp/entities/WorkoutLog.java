@@ -44,40 +44,25 @@ public class WorkoutLog {
         return fk_workoutId;
     }
 
-    public void setFk_workoutId(long fk_workoutId) {
-        this.fk_workoutId = fk_workoutId;
-    }
 
     public long getExerciseSetId1() {
         return exerciseSetId1;
     }
 
-    public void setExerciseSetId1(long exerciseSetId1) {
-        this.exerciseSetId1 = exerciseSetId1;
-    }
 
     public long getExerciseSetId2() {
         return exerciseSetId2;
     }
 
-    public void setExerciseSetId2(long exerciseSetId2) {
-        this.exerciseSetId2 = exerciseSetId2;
-    }
 
     public long getExerciseSetId3() {
         return exerciseSetId3;
     }
 
-    public void setExerciseSetId3(long exerciseSetId3) {
-        this.exerciseSetId3 = exerciseSetId3;
-    }
 
     public long getExerciseSetId4() {
         return exerciseSetId4;
     }
 
-    public void setExerciseSetId4(long exerciseSetId4) {
-        this.exerciseSetId4 = exerciseSetId4;
-    }
 
 }
