@@ -37,20 +37,46 @@
         app:menu="@menu/bottom_navigation_menu"
         style="@style/Widget.App.BottomNavigationView"/>
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Polecane dla ciebie"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:layout_constraintVertical_bias="0.037" />
+        app:layout_constraintVertical_bias="0.037">
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Polecane dla ciebie"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:paddingStart="20dp"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/home_workout_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="275dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:paddingStart="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.428"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10"
+            app:layout_constraintVertical_bias="0.006"
+            tools:listitem="@layout/home_workout_item" />
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/textView3"
@@ -62,46 +88,24 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.193"
+        app:layout_constraintHorizontal_bias="0.203"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:layout_constraintVertical_bias="0.577" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/home_workout_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="275dp"
-        android:layout_marginTop="110dp"
-        android:layout_marginBottom="60dp"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        android:paddingStart="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.006"
-        tools:listitem="@layout/home_workout_item" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.137" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/home_category_recycler_view"
         android:layout_width="wrap_content"
         android:layout_height="249dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="55dp"
         android:orientation="horizontal"
         android:paddingStart="15dp"
         android:paddingTop="5dp"
         android:paddingEnd="15dp"
         android:paddingBottom="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="1.0"
         tools:listitem="@layout/home_category_item" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
