@@ -28,52 +28,50 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <TextView
-        android:id="@+id/statystyki"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:padding="8dp"
-        android:text="Cześć"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="26dp"
-        app:layout_constraintBottom_toTopOf="@+id/workout_log_recycler_view"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.021"
+        app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.037"
+        android:padding="10dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:padding="8dp"
-        android:text="Odbyte treningi"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="17dp"
-        app:layout_constraintBottom_toTopOf="@+id/workout_log_recycler_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.025"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/statystyki"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/statystyki"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:padding="8dp"
+            android:text="Cześć"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="26dp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="Odbyte treningi"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="17dp"
+            app:layout_constraintTop_toBottomOf="@+id/statystyki"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/workout_log_recycler_view"
         android:layout_width="366dp"
         android:layout_height="517dp"
-        android:layout_marginTop="90dp"
-        android:layout_marginBottom="60dp"
-        android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         tools:listitem="@layout/profile_item" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
